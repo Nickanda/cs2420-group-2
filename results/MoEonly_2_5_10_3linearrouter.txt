@@ -1,0 +1,39 @@
+Training Students:
+Training Student 1:
+Student 1 Train Loss: 1.3121, Train Acc: 0.5319
+Student 1 Train Loss: 0.9273, Train Acc: 0.6716
+Student 1 Train Loss: 0.7570, Train Acc: 0.7336
+Student 1 Train Loss: 0.6192, Train Acc: 0.7827
+Student 1 Train Loss: 0.4921, Train Acc: 0.8275
+Student 1 Train Loss: 0.3750, Train Acc: 0.8700
+Student 1 Train Loss: 0.2700, Train Acc: 0.9068
+Student 1 Train Loss: 0.1905, Train Acc: 0.9356
+Student 1 Train Loss: 0.1299, Train Acc: 0.9562
+Student 1 Train Loss: 0.1009, Train Acc: 0.9658
+Training Student 2:
+Student 2 Train Loss: 1.2937, Train Acc: 0.5345
+Student 2 Train Loss: 0.9197, Train Acc: 0.6741
+Student 2 Train Loss: 0.7664, Train Acc: 0.7303
+Student 2 Train Loss: 0.6354, Train Acc: 0.7761
+Student 2 Train Loss: 0.5184, Train Acc: 0.8197
+Student 2 Train Loss: 0.4078, Train Acc: 0.8580
+Student 2 Train Loss: 0.3078, Train Acc: 0.8936
+Student 2 Train Loss: 0.2213, Train Acc: 0.9240
+Student 2 Train Loss: 0.1533, Train Acc: 0.9479
+Student 2 Train Loss: 0.1144, Train Acc: 0.9605
+
+Training MoE Gating Network:
+MoE Gating Network Train Loss: 0.0300, Train Acc: 0.9941
+MoE Gating Network Train Loss: 0.0301, Train Acc: 0.9942
+MoE Gating Network Train Loss: 0.0300, Train Acc: 0.9942
+MoE Gating Network Train Loss: 0.0300, Train Acc: 0.9941
+MoE Gating Network Train Loss: 0.0300, Train Acc: 0.9942
+MoE Gating Network Train Loss: 0.0299, Train Acc: 0.9942
+MoE Gating Network Train Loss: 0.0299, Train Acc: 0.9942
+MoE Gating Network Train Loss: 0.0299, Train Acc: 0.9943
+MoE Gating Network Train Loss: 0.0298, Train Acc: 0.9943
+MoE Gating Network Train Loss: 0.0298, Train Acc: 0.9944
+
+Evaluating MoE Model:
+MoE Results:
+Loss: 1.0906, Accuracy: 0.7562
