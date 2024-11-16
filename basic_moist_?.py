@@ -1,5 +1,5 @@
 # code taken from:
-# https://github.com/lucidrains/mixture-of-experts/blob/master/mixture_of_experts/mixture_of_experts.py and 
+# https://github.com/lucidrains/mixture-of-experts/blob/master/mixture_of_experts/mixture_of_experts.py
 # https://github.com/ShivamRajSharma/Teacher-Student-Network/blob/main/train.py
 
 import torch
