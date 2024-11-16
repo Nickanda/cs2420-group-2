@@ -1,0 +1,16 @@
+Training MoE Model:
+MoE Train Loss: 1.6527, Train Acc: 0.7708
+MoE Train Loss: 1.3662, Train Acc: 0.8740
+MoE Train Loss: 1.3046, Train Acc: 0.9059
+MoE Train Loss: 1.2708, Train Acc: 0.9209
+MoE Train Loss: 1.2324, Train Acc: 0.9348
+MoE Train Loss: 1.2086, Train Acc: 0.9501
+MoE Train Loss: 1.1695, Train Acc: 0.9595
+MoE Train Loss: 1.1420, Train Acc: 0.9684
+MoE Train Loss: 1.1418, Train Acc: 0.9743
+MoE Train Loss: 1.1333, Train Acc: 0.9754
+
+Evaluating MoE Model:
+MoE Results:
+Loss: 0.2813, Accuracy: 0.9220
+Latency per Image: 0.000945 secs
