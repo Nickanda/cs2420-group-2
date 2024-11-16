@@ -1,1 +1,175 @@
+Teacher:
+Epoch 1/10
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Teacher Train Loss: 0.3725, Train Acc: 0.8491
+Epoch 2/10
+Teacher Train Loss: 0.2244, Train Acc: 0.9095
+Epoch 3/10
+Teacher Train Loss: 0.1650, Train Acc: 0.9359
+Epoch 4/10
+Teacher Train Loss: 0.1344, Train Acc: 0.9488
+Epoch 5/10
+Teacher Train Loss: 0.1156, Train Acc: 0.9560
+Epoch 6/10
+Teacher Train Loss: 0.1033, Train Acc: 0.9603
+Epoch 7/10
+Teacher Train Loss: 0.0856, Train Acc: 0.9692
+Epoch 8/10
+Teacher Train Loss: 0.0636, Train Acc: 0.9759
+Epoch 9/10
+Teacher Train Loss: 0.0549, Train Acc: 0.9798
+Epoch 10/10
+Teacher Train Loss: 0.0655, Train Acc: 0.9757
 
+Distilling Student 1:
+Distill Loss: 1.6770
+
+Training Student 1:
+Epoch 1/10
+Student 1 Train Loss: 0.6575, Train Acc: 0.7839
+Epoch 2/10
+Student 1 Train Loss: 0.2813, Train Acc: 0.8825
+Epoch 3/10
+Student 1 Train Loss: 0.2136, Train Acc: 0.9149
+Epoch 4/10
+Student 1 Train Loss: 0.1772, Train Acc: 0.9304
+Epoch 5/10
+Student 1 Train Loss: 0.1565, Train Acc: 0.9373
+Epoch 6/10
+Student 1 Train Loss: 0.1395, Train Acc: 0.9445
+Epoch 7/10
+Student 1 Train Loss: 0.1218, Train Acc: 0.9525
+Epoch 8/10
+Student 1 Train Loss: 0.1112, Train Acc: 0.9566
+Epoch 9/10
+Student 1 Train Loss: 0.1062, Train Acc: 0.9576
+Epoch 10/10
+Student 1 Train Loss: 0.0964, Train Acc: 0.9640
+
+Distilling Student 2:
+Distill Loss: 1.6721
+
+Training Student 2:
+Epoch 1/10
+Student 2 Train Loss: 0.8044, Train Acc: 0.6542
+Epoch 2/10
+Student 2 Train Loss: 0.4958, Train Acc: 0.7665
+Epoch 3/10
+Student 2 Train Loss: 0.4506, Train Acc: 0.7934
+Epoch 4/10
+Student 2 Train Loss: 0.4300, Train Acc: 0.8043
+Epoch 5/10
+Student 2 Train Loss: 0.3981, Train Acc: 0.8247
+Epoch 6/10
+Student 2 Train Loss: 0.3641, Train Acc: 0.8392
+Epoch 7/10
+Student 2 Train Loss: 0.3402, Train Acc: 0.8522
+Epoch 8/10
+Student 2 Train Loss: 0.3160, Train Acc: 0.8639
+Epoch 9/10
+Student 2 Train Loss: 0.3069, Train Acc: 0.8678
+Epoch 10/10
+Student 2 Train Loss: 0.2811, Train Acc: 0.8837
+
+Distilling Student 3:
+Distill Loss: 1.7354
+
+Training Student 3:
+Epoch 1/10
+Student 3 Train Loss: 0.7972, Train Acc: 0.6750
+Epoch 2/10
+Student 3 Train Loss: 0.4567, Train Acc: 0.7796
+Epoch 3/10
+Student 3 Train Loss: 0.3965, Train Acc: 0.8163
+Epoch 4/10
+Student 3 Train Loss: 0.3647, Train Acc: 0.8339
+Epoch 5/10
+Student 3 Train Loss: 0.3363, Train Acc: 0.8517
+Epoch 6/10
+Student 3 Train Loss: 0.3075, Train Acc: 0.8682
+Epoch 7/10
+Student 3 Train Loss: 0.2830, Train Acc: 0.8834
+Epoch 8/10
+Student 3 Train Loss: 0.2631, Train Acc: 0.8912
+Epoch 9/10
+Student 3 Train Loss: 0.2397, Train Acc: 0.9023
+Epoch 10/10
+Student 3 Train Loss: 0.2242, Train Acc: 0.9086
+
+Distilling Student 4:
+Distill Loss: 1.7318
+
+Training Student 4:
+Epoch 1/10
+Student 4 Train Loss: 0.7291, Train Acc: 0.7486
+Epoch 2/10
+Student 4 Train Loss: 0.3101, Train Acc: 0.8710
+Epoch 3/10
+Student 4 Train Loss: 0.2162, Train Acc: 0.9144
+Epoch 4/10
+Student 4 Train Loss: 0.1633, Train Acc: 0.9333
+Epoch 5/10
+Student 4 Train Loss: 0.1412, Train Acc: 0.9443
+Epoch 6/10
+Student 4 Train Loss: 0.1208, Train Acc: 0.9542
+Epoch 7/10
+Student 4 Train Loss: 0.0996, Train Acc: 0.9622
+Epoch 8/10
+Student 4 Train Loss: 0.0927, Train Acc: 0.9652
+Epoch 9/10
+Student 4 Train Loss: 0.0822, Train Acc: 0.9671
+Epoch 10/10
+Student 4 Train Loss: 0.0676, Train Acc: 0.9752
+
+Distilling Student 5:
+Distill Loss: 1.6434
+
+Training Student 5:
+Epoch 1/10
+Student 5 Train Loss: 0.2298, Train Acc: 0.9103
+Epoch 2/10
+Student 5 Train Loss: 0.1982, Train Acc: 0.9240
+Epoch 3/10
+Student 5 Train Loss: 0.1790, Train Acc: 0.9288
+Epoch 4/10
+Student 5 Train Loss: 0.1679, Train Acc: 0.9361
+Epoch 5/10
+Student 5 Train Loss: 0.1479, Train Acc: 0.9445
+Epoch 6/10
+Student 5 Train Loss: 0.1394, Train Acc: 0.9461
+Epoch 7/10
+Student 5 Train Loss: 0.1254, Train Acc: 0.9525
+Epoch 8/10
+Student 5 Train Loss: 0.1154, Train Acc: 0.9562
+Epoch 9/10
+Student 5 Train Loss: 0.1009, Train Acc: 0.9622
+Epoch 10/10
+Student 5 Train Loss: 0.0848, Train Acc: 0.9686
+
+Training MoE Model:
+MoE Train Loss: 0.8178, Train Acc: 0.7473
+MoE Train Loss: 0.2219, Train Acc: 0.9109
+MoE Train Loss: 0.1754, Train Acc: 0.9307
+MoE Train Loss: 0.1393, Train Acc: 0.9468
+MoE Train Loss: 0.1134, Train Acc: 0.9558
+MoE Train Loss: 0.0864, Train Acc: 0.9670
+MoE Train Loss: 0.0645, Train Acc: 0.9768
+MoE Train Loss: 0.0468, Train Acc: 0.9850
+MoE Train Loss: 0.0363, Train Acc: 0.9876
+MoE Train Loss: 0.0250, Train Acc: 0.9919
+\Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.2099, Accuracy: 0.9330
+Latency per Image: 0.004110 secs
+FLOPs per Image: 0.58 MFLOPs
+\MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.2, students.2.network, students.2.network.0, students.2.network.1, students.2.network.2, students.2.network.3, students.2.network.4, students.2.network.5, students.2.network.6, students.2.network.7, students.2.network.8, students.2.network.9, students.4, students.4.network, students.4.network.0, students.4.network.1, students.4.network.2, students.4.network.3, students.4.network.4, students.4.network.5, students.4.network.6, students.4.network.7, students.4.network.8, students.4.network.9
+MoE Results:
+Loss: 0.3189, Accuracy: 0.9175
+Latency per Image: 0.000806 secs
+FLOPs per Image: 0.10 MFLOPs
