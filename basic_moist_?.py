@@ -142,9 +142,13 @@ class MoE(nn.Module):
     def forward(self, x):
         batch_size = x.size(0)
         gating_probs = self.gating_net(x.view(batch_size, -1))
-        outputs = torch.stack([student(x) for student in self.students], dim=1)
-        moe_output = (outputs * gating_probs.unsqueeze(-1)).sum(dim=1)
-        return moe_output
+
+        best_experts = gating_probs.argmax(dim=1)
+
+        outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
+        for i, expert_idx in enumerate(best_experts):
+            outputs[i] = self.students[expert_idx](x[i].unsqueeze(0)).squeeze(0)
+        return outputs
 
 def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
