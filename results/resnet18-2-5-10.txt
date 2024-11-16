@@ -1,0 +1,86 @@
+Teacher:
+Epoch 1/10
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Teacher Train Loss: 0.7801, Train Acc: 0.7059
+Epoch 2/10
+Teacher Train Loss: 0.5024, Train Acc: 0.8186
+Epoch 3/10
+Teacher Train Loss: 0.3926, Train Acc: 0.8574
+Epoch 4/10
+Teacher Train Loss: 0.3274, Train Acc: 0.8834
+Epoch 5/10
+Teacher Train Loss: 0.2816, Train Acc: 0.8988
+Epoch 6/10
+Teacher Train Loss: 0.2427, Train Acc: 0.9111
+Epoch 7/10
+Teacher Train Loss: 0.2000, Train Acc: 0.9276
+Epoch 8/10
+Teacher Train Loss: 0.1677, Train Acc: 0.9398
+Epoch 9/10
+Teacher Train Loss: 0.1415, Train Acc: 0.9497
+Epoch 10/10
+Teacher Train Loss: 0.1190, Train Acc: 0.9574
+
+Distilling Student 1:
+Distill Loss: 2.8658
+\Training Student 1:
+Epoch 1/10
+Student 1 Train Loss: 1.0576, Train Acc: 0.6157
+Epoch 2/10
+Student 1 Train Loss: 0.7171, Train Acc: 0.7266
+Epoch 3/10
+Student 1 Train Loss: 0.6427, Train Acc: 0.7564
+Epoch 4/10
+Student 1 Train Loss: 0.5798, Train Acc: 0.7797
+Epoch 5/10
+Student 1 Train Loss: 0.5322, Train Acc: 0.8002
+Epoch 6/10
+Student 1 Train Loss: 0.4880, Train Acc: 0.8146
+Epoch 7/10
+Student 1 Train Loss: 0.4418, Train Acc: 0.8335
+Epoch 8/10
+Student 1 Train Loss: 0.3968, Train Acc: 0.8512
+Epoch 9/10
+Student 1 Train Loss: 0.3513, Train Acc: 0.8714
+Epoch 10/10
+Student 1 Train Loss: 0.3081, Train Acc: 0.8855
+
+Distilling Student 2:
+Distill Loss: 2.8487
+\Training Student 2:
+Epoch 1/10
+Student 2 Train Loss: 0.4963, Train Acc: 0.8157
+Epoch 2/10
+Student 2 Train Loss: 0.4185, Train Acc: 0.8476
+Epoch 3/10
+Student 2 Train Loss: 0.3605, Train Acc: 0.8697
+Epoch 4/10
+Student 2 Train Loss: 0.3138, Train Acc: 0.8852
+Epoch 5/10
+Student 2 Train Loss: 0.2793, Train Acc: 0.8992
+Epoch 6/10
+Student 2 Train Loss: 0.2305, Train Acc: 0.9163
+Epoch 7/10
+Student 2 Train Loss: 0.1897, Train Acc: 0.9332
+Epoch 8/10
+Student 2 Train Loss: 0.1575, Train Acc: 0.9444
+Epoch 9/10
+Student 2 Train Loss: 0.1170, Train Acc: 0.9587
+Epoch 10/10
+Student 2 Train Loss: 0.0823, Train Acc: 0.9732
+\Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.4067, Accuracy: 0.8728
+Latency per Image: 0.002067 secs
+FLOPs per Image: 0.58 MFLOPs
+\MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, gating_net.gate, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9
+MoE Results:
+Loss: 7.7742, Accuracy: 0.5132
+Latency per Image: 0.000741 secs
+FLOPs per Image: 0.10 MFLOPs
