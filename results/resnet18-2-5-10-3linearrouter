@@ -1,0 +1,97 @@
+Teacher:
+Epoch 1/10
+/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Teacher Train Loss: 0.7691, Train Acc: 0.7115
+Epoch 2/10
+Teacher Train Loss: 0.4940, Train Acc: 0.8188
+Epoch 3/10
+Teacher Train Loss: 0.3942, Train Acc: 0.8574
+Epoch 4/10
+Teacher Train Loss: 0.3299, Train Acc: 0.8800
+Epoch 5/10
+Teacher Train Loss: 0.2791, Train Acc: 0.8997
+Epoch 6/10
+Teacher Train Loss: 0.2343, Train Acc: 0.9146
+Epoch 7/10
+Teacher Train Loss: 0.1983, Train Acc: 0.9277
+Epoch 8/10
+Teacher Train Loss: 0.1727, Train Acc: 0.9370
+Epoch 9/10
+Teacher Train Loss: 0.1384, Train Acc: 0.9485
+Epoch 10/10
+Teacher Train Loss: 0.1266, Train Acc: 0.9547
+
+Distilling Student 1:
+Distill Loss: 2.8850
+\Training Student 1:
+Epoch 1/10
+Student 1 Train Loss: 1.0763, Train Acc: 0.6045
+Epoch 2/10
+Student 1 Train Loss: 0.7496, Train Acc: 0.7089
+Epoch 3/10
+Student 1 Train Loss: 0.6710, Train Acc: 0.7412
+Epoch 4/10
+Student 1 Train Loss: 0.6126, Train Acc: 0.7678
+Epoch 5/10
+Student 1 Train Loss: 0.5668, Train Acc: 0.7857
+Epoch 6/10
+Student 1 Train Loss: 0.5262, Train Acc: 0.8039
+Epoch 7/10
+Student 1 Train Loss: 0.4888, Train Acc: 0.8176
+Epoch 8/10
+Student 1 Train Loss: 0.4447, Train Acc: 0.8344
+Epoch 9/10
+Student 1 Train Loss: 0.4051, Train Acc: 0.8524
+Epoch 10/10
+Student 1 Train Loss: 0.3634, Train Acc: 0.8673
+
+Distilling Student 2:
+Distill Loss: 2.9308
+\Training Student 2:
+Epoch 1/10
+Student 2 Train Loss: 0.4888, Train Acc: 0.8181
+Epoch 2/10
+Student 2 Train Loss: 0.4156, Train Acc: 0.8480
+Epoch 3/10
+Student 2 Train Loss: 0.3588, Train Acc: 0.8684
+Epoch 4/10
+Student 2 Train Loss: 0.3148, Train Acc: 0.8836
+Epoch 5/10
+Student 2 Train Loss: 0.2675, Train Acc: 0.9033
+Epoch 6/10
+Student 2 Train Loss: 0.2207, Train Acc: 0.9200
+Epoch 7/10
+Student 2 Train Loss: 0.1816, Train Acc: 0.9350
+Epoch 8/10
+Student 2 Train Loss: 0.1433, Train Acc: 0.9499
+Epoch 9/10
+Student 2 Train Loss: 0.1048, Train Acc: 0.9633
+Epoch 10/10
+Student 2 Train Loss: 0.0749, Train Acc: 0.9755
+
+Training Gating Network:
+Gating Network Epoch 1: Loss 20.4770, Accuracy 0.9842
+Gating Network Epoch 2: Loss 19.1501, Accuracy 0.9852
+Gating Network Epoch 3: Loss 19.0921, Accuracy 0.9852
+Gating Network Epoch 4: Loss 19.0870, Accuracy 0.9852
+Gating Network Epoch 5: Loss 19.0946, Accuracy 0.9852
+\Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.4126, Accuracy: 0.8820
+Latency per Image: 0.001905 secs
+FLOPs per Image: 0.58 MFLOPs
+\MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, gating_net.gate, gating_net.gate.0, gating_net.gate.1, gating_net.gate.2, gating_net.gate.3, gating_net.gate.4, gating_net.gate.5, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9
+MoE Results:
+Loss: 0.4823, Accuracy: 0.8744
+Latency per Image: 0.000722 secs
+FLOPs per Image: 0.10 MFLOPs
