@@ -20,6 +20,12 @@ Our project proposes to combine these two ideas so that one large teacher model 
 
 ## 3. Installation
 
+We use Python >= 3.9 to run our script. Our program uses three Python libraries: PyTorch 2.5, Transformers 4.46.3, fvcore. To install the packages, you can run:
+
+```
+pip install -r requirements.txt
+```
+
 ## 4. Training & Inference
 
 ## x. References
