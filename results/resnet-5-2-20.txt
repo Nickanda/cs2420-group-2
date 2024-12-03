@@ -1,0 +1,279 @@
+Teacher: resnet18
+Num Students: 5
+Classes per student: 2
+Epochs: 20
+
+Teacher Train Loss: 0.3693, Train Acc: 0.8509
+Epoch 2/20
+Teacher Train Loss: 0.2080, Train Acc: 0.9177
+Epoch 3/20
+Teacher Train Loss: 0.1656, Train Acc: 0.9346
+Epoch 4/20
+Teacher Train Loss: 0.1382, Train Acc: 0.9443
+Epoch 5/20
+Teacher Train Loss: 0.1170, Train Acc: 0.9557
+Epoch 6/20
+Teacher Train Loss: 0.1034, Train Acc: 0.9608
+Epoch 7/20
+Teacher Train Loss: 0.0813, Train Acc: 0.9683
+Epoch 8/20
+Teacher Train Loss: 0.0695, Train Acc: 0.9759
+Epoch 9/20
+Teacher Train Loss: 0.0667, Train Acc: 0.9739
+Epoch 10/20
+Teacher Train Loss: 0.0593, Train Acc: 0.9792
+Epoch 11/20
+Teacher Train Loss: 0.0476, Train Acc: 0.9818
+Epoch 12/20
+Teacher Train Loss: 0.0449, Train Acc: 0.9832
+Epoch 13/20
+Teacher Train Loss: 0.0368, Train Acc: 0.9865
+Epoch 14/20
+Teacher Train Loss: 0.0397, Train Acc: 0.9854
+Epoch 15/20
+Teacher Train Loss: 0.0301, Train Acc: 0.9894
+Epoch 16/20
+Teacher Train Loss: 0.0342, Train Acc: 0.9894
+Epoch 17/20
+Teacher Train Loss: 0.0385, Train Acc: 0.9880
+Epoch 18/20
+Teacher Train Loss: 0.0498, Train Acc: 0.9831
+Epoch 19/20
+Teacher Train Loss: 0.0289, Train Acc: 0.9887
+Epoch 20/20
+Teacher Train Loss: 0.0263, Train Acc: 0.9906
+
+Distilling Student 1:
+Distill Loss: 2.0555
+\Training Student 1:
+Epoch 1/20
+Student 1 Train Loss: 0.6823, Train Acc: 0.7925
+Epoch 2/20
+Student 1 Train Loss: 0.3036, Train Acc: 0.8724
+Epoch 3/20
+Student 1 Train Loss: 0.2556, Train Acc: 0.8958
+Epoch 4/20
+Student 1 Train Loss: 0.2305, Train Acc: 0.9037
+Epoch 5/20
+Student 1 Train Loss: 0.1906, Train Acc: 0.9231
+Epoch 6/20
+Student 1 Train Loss: 0.1680, Train Acc: 0.9349
+Epoch 7/20
+Student 1 Train Loss: 0.1423, Train Acc: 0.9451
+Epoch 8/20
+Student 1 Train Loss: 0.1268, Train Acc: 0.9502
+Epoch 9/20
+Student 1 Train Loss: 0.1172, Train Acc: 0.9561
+Epoch 10/20
+Student 1 Train Loss: 0.1054, Train Acc: 0.9601
+Epoch 11/20
+Student 1 Train Loss: 0.0939, Train Acc: 0.9643
+Epoch 12/20
+Student 1 Train Loss: 0.0820, Train Acc: 0.9700
+Epoch 13/20
+Student 1 Train Loss: 0.0790, Train Acc: 0.9701
+Epoch 14/20
+Student 1 Train Loss: 0.0676, Train Acc: 0.9761
+Epoch 15/20
+Student 1 Train Loss: 0.0630, Train Acc: 0.9767
+Epoch 16/20
+Student 1 Train Loss: 0.0504, Train Acc: 0.9825
+Epoch 17/20
+Student 1 Train Loss: 0.0451, Train Acc: 0.9859
+Epoch 18/20
+Student 1 Train Loss: 0.0363, Train Acc: 0.9876
+Epoch 19/20
+Student 1 Train Loss: 0.0343, Train Acc: 0.9883
+Epoch 20/20
+Student 1 Train Loss: 0.0304, Train Acc: 0.9899
+
+Distilling Student 2:
+Distill Loss: 2.0799
+\Training Student 2:
+Epoch 1/20
+Student 2 Train Loss: 0.8042, Train Acc: 0.6679
+Epoch 2/20
+Student 2 Train Loss: 0.4976, Train Acc: 0.7684
+Epoch 3/20
+Student 2 Train Loss: 0.4628, Train Acc: 0.7840
+Epoch 4/20
+Student 2 Train Loss: 0.4433, Train Acc: 0.8009
+Epoch 5/20
+Student 2 Train Loss: 0.4202, Train Acc: 0.8090
+Epoch 6/20
+Student 2 Train Loss: 0.3913, Train Acc: 0.8298
+Epoch 7/20
+Student 2 Train Loss: 0.3649, Train Acc: 0.8417
+Epoch 8/20
+Student 2 Train Loss: 0.3422, Train Acc: 0.8528
+Epoch 9/20
+Student 2 Train Loss: 0.3210, Train Acc: 0.8649
+Epoch 10/20
+Student 2 Train Loss: 0.3012, Train Acc: 0.8723
+Epoch 11/20
+Student 2 Train Loss: 0.2803, Train Acc: 0.8804
+Epoch 12/20
+Student 2 Train Loss: 0.2581, Train Acc: 0.8957
+Epoch 13/20
+Student 2 Train Loss: 0.2463, Train Acc: 0.8964
+Epoch 14/20
+Student 2 Train Loss: 0.2231, Train Acc: 0.9089
+Epoch 15/20
+Student 2 Train Loss: 0.2061, Train Acc: 0.9168
+Epoch 16/20
+Student 2 Train Loss: 0.1782, Train Acc: 0.9310
+Epoch 17/20
+Student 2 Train Loss: 0.1567, Train Acc: 0.9379
+Epoch 18/20
+Student 2 Train Loss: 0.1538, Train Acc: 0.9413
+Epoch 19/20
+Student 2 Train Loss: 0.1294, Train Acc: 0.9535
+Epoch 20/20
+Student 2 Train Loss: 0.1081, Train Acc: 0.9600
+
+Distilling Student 3:
+Distill Loss: 2.1741
+\Training Student 3:
+Epoch 1/20
+Student 3 Train Loss: 0.7798, Train Acc: 0.6753
+Epoch 2/20
+Student 3 Train Loss: 0.4189, Train Acc: 0.8086
+Epoch 3/20
+Student 3 Train Loss: 0.3644, Train Acc: 0.8384
+Epoch 4/20
+Student 3 Train Loss: 0.3325, Train Acc: 0.8536
+Epoch 5/20
+Student 3 Train Loss: 0.2984, Train Acc: 0.8724
+Epoch 6/20
+Student 3 Train Loss: 0.2828, Train Acc: 0.8786
+Epoch 7/20
+Student 3 Train Loss: 0.2606, Train Acc: 0.8922
+Epoch 8/20
+Student 3 Train Loss: 0.2477, Train Acc: 0.9001
+Epoch 9/20
+Student 3 Train Loss: 0.2228, Train Acc: 0.9081
+Epoch 10/20
+Student 3 Train Loss: 0.2131, Train Acc: 0.9145
+Epoch 11/20
+Student 3 Train Loss: 0.1965, Train Acc: 0.9184
+Epoch 12/20
+Student 3 Train Loss: 0.1796, Train Acc: 0.9302
+Epoch 13/20
+Student 3 Train Loss: 0.1655, Train Acc: 0.9331
+Epoch 14/20
+Student 3 Train Loss: 0.1512, Train Acc: 0.9413
+Epoch 15/20
+Student 3 Train Loss: 0.1382, Train Acc: 0.9470
+Epoch 16/20
+Student 3 Train Loss: 0.1269, Train Acc: 0.9530
+Epoch 17/20
+Student 3 Train Loss: 0.1034, Train Acc: 0.9638
+Epoch 18/20
+Student 3 Train Loss: 0.0948, Train Acc: 0.9673
+Epoch 19/20
+Student 3 Train Loss: 0.0866, Train Acc: 0.9677
+Epoch 20/20
+Student 3 Train Loss: 0.0736, Train Acc: 0.9737
+
+Distilling Student 4:
+Distill Loss: 2.1592
+\Training Student 4:
+Epoch 1/20
+Student 4 Train Loss: 0.7598, Train Acc: 0.7285
+Epoch 2/20
+Student 4 Train Loss: 0.2754, Train Acc: 0.8853
+Epoch 3/20
+Student 4 Train Loss: 0.2010, Train Acc: 0.9203
+Epoch 4/20
+Student 4 Train Loss: 0.1621, Train Acc: 0.9399
+Epoch 5/20
+Student 4 Train Loss: 0.1329, Train Acc: 0.9497
+Epoch 6/20
+Student 4 Train Loss: 0.1125, Train Acc: 0.9559
+Epoch 7/20
+Student 4 Train Loss: 0.0918, Train Acc: 0.9656
+Epoch 8/20
+Student 4 Train Loss: 0.0837, Train Acc: 0.9674
+Epoch 9/20
+Student 4 Train Loss: 0.0833, Train Acc: 0.9667
+Epoch 10/20
+Student 4 Train Loss: 0.0684, Train Acc: 0.9735
+Epoch 11/20
+Student 4 Train Loss: 0.0581, Train Acc: 0.9778
+Epoch 12/20
+Student 4 Train Loss: 0.0595, Train Acc: 0.9775
+Epoch 13/20
+Student 4 Train Loss: 0.0543, Train Acc: 0.9794
+Epoch 14/20
+Student 4 Train Loss: 0.0407, Train Acc: 0.9853
+Epoch 15/20
+Student 4 Train Loss: 0.0399, Train Acc: 0.9855
+Epoch 16/20
+Student 4 Train Loss: 0.0375, Train Acc: 0.9861
+Epoch 17/20
+Student 4 Train Loss: 0.0267, Train Acc: 0.9912
+Epoch 18/20
+Student 4 Train Loss: 0.0219, Train Acc: 0.9925
+Epoch 19/20
+Student 4 Train Loss: 0.0152, Train Acc: 0.9956
+Epoch 20/20
+Student 4 Train Loss: 0.0136, Train Acc: 0.9958
+
+Distilling Student 5:
+Distill Loss: 2.1470
+\Training Student 5:
+Epoch 1/20
+Student 5 Train Loss: 0.2636, Train Acc: 0.8980
+Epoch 2/20
+Student 5 Train Loss: 0.2160, Train Acc: 0.9166
+Epoch 3/20
+Student 5 Train Loss: 0.1935, Train Acc: 0.9243
+Epoch 4/20
+Student 5 Train Loss: 0.1834, Train Acc: 0.9278
+Epoch 5/20
+Student 5 Train Loss: 0.1678, Train Acc: 0.9354
+Epoch 6/20
+Student 5 Train Loss: 0.1450, Train Acc: 0.9461
+Epoch 7/20
+Student 5 Train Loss: 0.1331, Train Acc: 0.9488
+Epoch 8/20
+Student 5 Train Loss: 0.1161, Train Acc: 0.9560
+Epoch 9/20
+Student 5 Train Loss: 0.1117, Train Acc: 0.9580
+Epoch 10/20
+Student 5 Train Loss: 0.0945, Train Acc: 0.9644
+Epoch 11/20
+Student 5 Train Loss: 0.0821, Train Acc: 0.9691
+Epoch 12/20
+Student 5 Train Loss: 0.0845, Train Acc: 0.9683
+Epoch 13/20
+Student 5 Train Loss: 0.0626, Train Acc: 0.9760
+Epoch 14/20
+Student 5 Train Loss: 0.0533, Train Acc: 0.9800
+Epoch 15/20
+Student 5 Train Loss: 0.0514, Train Acc: 0.9813
+Epoch 16/20
+Student 5 Train Loss: 0.0308, Train Acc: 0.9897
+Epoch 17/20
+Student 5 Train Loss: 0.0192, Train Acc: 0.9940
+Epoch 18/20
+Student 5 Train Loss: 0.0288, Train Acc: 0.9894
+Epoch 19/20
+Student 5 Train Loss: 0.0167, Train Acc: 0.9953
+Epoch 20/20
+Student 5 Train Loss: 0.0140, Train Acc: 0.9958
+\Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.2627, Accuracy: 0.9340
+Latency per Image: 0.001958 secs
+FLOPs per Image: 0.58 MFLOPs
+\MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, gating_net.gate, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.2, students.2.network, students.2.network.0, students.2.network.1, students.2.network.2, students.2.network.3, students.2.network.4, students.2.network.5, students.2.network.6, students.2.network.7, students.2.network.8, students.2.network.9, students.4, students.4.network, students.4.network.0, students.4.network.1, students.4.network.2, students.4.network.3, students.4.network.4, students.4.network.5, students.4.network.6, students.4.network.7, students.4.network.8, students.4.network.9
+MoE Results:
+Loss: 16.2367, Accuracy: 0.1240
+Latency per Image: 0.000763 secs
+FLOPs per Image: 0.10 MFLOPs

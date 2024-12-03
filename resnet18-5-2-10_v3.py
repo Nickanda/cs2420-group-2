@@ -103,14 +103,18 @@ class StudentModel(nn.Module):
     def __init__(self):
         super(StudentModel, self).__init__()
         self.network = nn.Sequential(
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),
+            nn.Conv2d(3, 16, kernel_size=3, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            nn.Conv2d(16, 16, kernel_size=3, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
+            nn.Conv2d(16, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.AdaptiveAvgPool2d(1),
             nn.Flatten(),
-            nn.Linear(8 * 8 * 64, config.hidden_dim),
+            nn.Linear(32, config.hidden_dim),
             nn.ReLU(),
             nn.Linear(config.hidden_dim, config.num_classes)
         )
@@ -282,10 +286,10 @@ def main():
     moe_optimizer = AdamW(moe_model.parameters(), lr=config.lr)
     train_moe_model(moe_model, train_loader, criterion, moe_optimizer, device, epochs=config.epochs)
 
-    print("\Teacher model:")
+    print("\nTeacher model:")
     evaluate_with_metrics(teacher, test_loader, device, description="Teacher")
 
-    print("\MoE Model:")
+    print("\nMoE Model:")
     evaluate_with_metrics(moe_model, test_loader, device, description="MoE")
 
 if __name__ == "__main__":

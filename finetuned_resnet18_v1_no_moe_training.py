@@ -24,32 +24,6 @@ class Config:
 
 config = Config()
 
-class Top1Gating(nn.Module):
-    def __init__(self, dim, num_gates, eps=1e-9, outer_expert_dims=tuple(), capacity_factor_train=1.25, capacity_factor_eval=2.0):
-        super().__init__()
-        self.eps = eps
-        self.num_gates = num_gates
-        self.w_gating = nn.Parameter(torch.randn(dim, num_gates))
-
-        self.capacity_factor_train = capacity_factor_train
-        self.capacity_factor_eval = capacity_factor_eval
-
-    def forward(self, x, importance=None):
-        b, d = x.shape
-        num_gates = self.num_gates
-
-        raw_gates = torch.matmul(x, self.w_gating)
-        raw_gates = F.softmax(raw_gates, dim=-1)
-
-        gate_1, index_1 = raw_gates.max(dim=-1)
-        mask_1 = F.one_hot(index_1, num_gates).float()
-
-        density_1 = mask_1.mean(dim=0)
-        density_1_proxy = raw_gates.mean(dim=0)
-        loss = (density_1_proxy * density_1).mean() * float(num_gates ** 2)
-
-        return None, index_1, loss
-
 def get_data_loaders(num_students=5, classes_per_group=None):
     if classes_per_group is None:
         classes_per_group = 10 // num_students
@@ -59,29 +33,36 @@ def get_data_loaders(num_students=5, classes_per_group=None):
         transforms.Normalize((0.5,), (0.5,))
     ])
     
+    # Load the full CIFAR-10 dataset
     train_dataset = datasets.CIFAR10(root='./data', train=True, transform=transform, download=True)
     test_dataset = datasets.CIFAR10(root='./data', train=False, transform=transform, download=True)
 
     train_loader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True, num_workers=2)
     test_loader = DataLoader(test_dataset, batch_size=config.batch_size, shuffle=False, num_workers=2)
 
-    all_classes = list(range(10))
+    # Define all the class labels
+    all_classes = list(range(10))  # 0 to 9, CIFAR-10 class labels
 
+    # If classes_per_group is defined, you can split the classes accordingly
     class_groups = []
     for i in range(num_students):
         group_classes = all_classes[i * classes_per_group:(i + 1) * classes_per_group]
         class_groups.append(group_classes)
     
+    # Helper function to filter dataset by class
     def filter_by_classes(dataset, classes):
         indices = [i for i, target in enumerate(dataset.targets) if target in classes]
         return Subset(dataset, indices)
 
+    # Create a list of DataLoaders, one for each class group
     train_loaders = []
     test_loaders = []
     for i, group in enumerate(class_groups):
+        # Filter datasets by class group
         train_subset = filter_by_classes(train_dataset, group)
         test_subset = filter_by_classes(test_dataset, group)
         
+        # Create DataLoaders for each subset
         train_loader = DataLoader(train_subset, batch_size=config.batch_size, shuffle=True, num_workers=2)
         test_loader = DataLoader(test_subset, batch_size=config.batch_size, shuffle=False, num_workers=2)
         
@@ -202,7 +183,19 @@ def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, d
 class GatingNetwork(nn.Module):
     def __init__(self, num_students, input_dim):
         super(GatingNetwork, self).__init__()
-        self.gate = nn.Linear(input_dim, num_students)
+        self.gate = nn.Sequential(
+            nn.Conv2d(3, 16, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(16, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.AdaptiveAvgPool2d(1),
+            nn.Flatten(),
+            nn.Linear(32, 64),
+            nn.ReLU(),
+            nn.Linear(64, config.num_students)
+    )
 
     def forward(self, x):
         return F.softmax(self.gate(x), dim=1)
@@ -215,39 +208,18 @@ class MoE(nn.Module):
 
     def forward(self, x):
         batch_size = x.size(0)
-        input_features = x.view(batch_size, -1)
-        
-        _, best_experts, _ = self.gating_net(input_features)
+        gating_probs = self.gating_net(x)
+        best_experts = gating_probs.argmax(dim=1)
 
         outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
-
         for i, expert_idx in enumerate(best_experts):
-            outputs[i] = self.students[expert_idx.item()](x[i].unsqueeze(0)).squeeze(0)
-
+            outputs[i] = self.students[expert_idx](x[i].unsqueeze(0)).squeeze(0)
         return outputs
 
 def train_model(model, train_loader, criterion, optimizer, device, description, epochs=config.epochs):
     for epoch in range(epochs):
         print(f"Epoch {epoch+1}/{epochs}")
         train_epoch(model, train_loader, optimizer, criterion, device, description=description)
-
-def train_moe_model(moe_model, loader, criterion, optimizer, device, epochs=1):
-    moe_model.train()
-    for epoch in range(epochs):
-        total_loss, correct = 0, 0
-        for inputs, targets in loader:
-            inputs, targets = inputs.to(device), targets.to(device)
-            optimizer.zero_grad()
-            outputs = moe_model(inputs)
-            loss = criterion(outputs, targets)
-            loss.backward()
-            optimizer.step()
-
-            total_loss += loss.item()
-            correct += (outputs.argmax(1) == targets).sum().item()
-        
-        print(f"MoE Train Loss: {total_loss / len(loader):.4f}, "
-              f"Train Acc: {correct / len(loader.dataset):.4f}")
 
 def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -270,22 +242,18 @@ def main():
         print(f"\nDistilling Student {i+1}:")
         distill_teacher_to_student(teacher, student, train_loader, student_optimizer, criterion, device)
 
-        print(f"\nTraining Student {i+1}:")
+        print(f"\Training Student {i+1}:")
         train_model(student, train_loaders[i], criterion, student_optimizer, device, description=f"Student {i+1}")
 
         torch.save(student.state_dict(), config.student_model_path.format(i))
 
-    gating_net = Top1Gating(dim=3 * 32 * 32, num_gates=config.num_students).to(device)
+    gating_net = GatingNetwork(num_students=config.num_students, input_dim=3 * 32 * 32).to(device)
     moe_model = MoE(students, gating_net).to(device)
-
-    print("\nTraining MoE Model:")
-    moe_optimizer = AdamW(moe_model.parameters(), lr=config.lr)
-    train_moe_model(moe_model, train_loader, criterion, moe_optimizer, device, epochs=config.epochs)
 
     print("\Teacher model:")
     evaluate_with_metrics(teacher, test_loader, device, description="Teacher")
 
-    print("\MoE Model:")
+    print("\nMoE Model:")
     evaluate_with_metrics(moe_model, test_loader, device, description="MoE")
 
 if __name__ == "__main__":
