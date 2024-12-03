@@ -113,6 +113,32 @@ class MoE(nn.Module):
         if return_router_assignments:
             return outputs, best_experts
         return outputs
+        
+def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, device):
+    teacher.eval()
+    student.train()
+    total_loss = 0
+    for inputs, targets in loader:
+        inputs, targets = inputs.to(device), targets.to(device)
+
+        with torch.no_grad():
+            teacher_outputs = teacher(inputs)
+            teacher_soft = F.softmax(teacher_outputs / config.temperature, dim=1)
+
+        student_outputs = student(inputs)
+        student_soft = F.log_softmax(student_outputs / config.temperature, dim=1)
+
+        distill_loss = F.kl_div(student_soft, teacher_soft, reduction='batchmean') * (config.temperature ** 2)
+        hard_loss = F.cross_entropy(student_outputs, targets)
+        loss = config.alpha * distill_loss + (1 - config.alpha) * hard_loss
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+    
+    print(f"Distill Loss: {total_loss / len(loader):.4f}")
+    return total_loss / len(loader)
 
 def visualize_specialization(class_prob_tracker, num_classes, num_students):
     # Convert class probabilities to a NumPy array for easy plotting
