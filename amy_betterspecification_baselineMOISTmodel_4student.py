@@ -140,6 +140,43 @@ def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, d
     print(f"Distill Loss: {total_loss / len(loader):.4f}")
     return total_loss / len(loader)
 
+def evaluate_with_metrics(model, loader, device, description="Model"):
+    model.eval()
+    criterion = nn.CrossEntropyLoss()
+    total_loss, correct = 0, 0
+    total_samples = 0
+    
+    with torch.no_grad():        
+        for i, (inputs, targets) in enumerate(loader):
+            inputs, targets = inputs.to(device), targets.to(device)
+            batch_size = inputs.size(0)
+
+            if i == 0:
+                start_time = time.time()
+
+                flops_input = inputs[:1].to(device)
+                flops_analysis = FlopCountAnalysis(model, flops_input)
+                flops_per_image = flops_analysis.total() / batch_size
+
+                end_time = time.time()
+
+                latency = (end_time - start_time) / batch_size
+
+            outputs = model(inputs)
+
+            loss = criterion(outputs, targets)
+            total_loss += loss.item()
+            correct += (outputs.argmax(1) == targets).sum().item()
+            total_samples += batch_size
+
+    accuracy = correct / total_samples
+    print(f"{description} Results:")
+    print(f"Loss: {total_loss / len(loader):.4f}, Accuracy: {accuracy:.4f}")
+    print(f"Latency per Image: {latency:.6f} secs")
+    print(f"FLOPs per Image: {flops_per_image / 1e6:.2f} MFLOPs")
+
+    return total_loss, accuracy, latency, flops_per_image
+
 def visualize_specialization(class_prob_tracker, num_classes, num_students):
     # Convert class probabilities to a NumPy array for easy plotting
     data = torch.stack([class_prob_tracker[c] for c in range(num_classes)]).cpu().numpy()
