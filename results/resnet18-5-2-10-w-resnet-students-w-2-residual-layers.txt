@@ -1,0 +1,176 @@
+Teacher:
+Epoch 1/10
+Teacher Train Loss: 0.2320, Train Acc: 0.9169
+Epoch 2/10
+Teacher Train Loss: 0.1034, Train Acc: 0.9625
+Epoch 3/10
+Teacher Train Loss: 0.0799, Train Acc: 0.9704
+Epoch 4/10
+Teacher Train Loss: 0.0682, Train Acc: 0.9754
+Epoch 5/10
+Teacher Train Loss: 0.0510, Train Acc: 0.9823
+Epoch 6/10
+Teacher Train Loss: 0.0455, Train Acc: 0.9836
+Epoch 7/10
+Teacher Train Loss: 0.0378, Train Acc: 0.9880
+Epoch 8/10
+Teacher Train Loss: 0.0257, Train Acc: 0.9907
+Epoch 9/10
+Teacher Train Loss: 0.0362, Train Acc: 0.9873
+Epoch 10/10
+Teacher Train Loss: 0.0193, Train Acc: 0.9929
+
+Distilling Student 1:
+Distill Loss: 3.5623
+
+Training Student 1:
+Epoch 1/10
+Student 1 Train Loss: 1.3410, Train Acc: 0.6204
+Epoch 2/10
+Student 1 Train Loss: 0.3656, Train Acc: 0.8432
+Epoch 3/10
+Student 1 Train Loss: 0.3028, Train Acc: 0.8744
+Epoch 4/10
+Student 1 Train Loss: 0.2438, Train Acc: 0.9013
+Epoch 5/10
+Student 1 Train Loss: 0.2178, Train Acc: 0.9122
+Epoch 6/10
+Student 1 Train Loss: 0.1885, Train Acc: 0.9260
+Epoch 7/10
+Student 1 Train Loss: 0.1736, Train Acc: 0.9324
+Epoch 8/10
+Student 1 Train Loss: 0.1641, Train Acc: 0.9379
+Epoch 9/10
+Student 1 Train Loss: 0.1474, Train Acc: 0.9444
+Epoch 10/10
+Student 1 Train Loss: 0.1357, Train Acc: 0.9479
+
+Distilling Student 2:
+Distill Loss: 3.5420
+
+Training Student 2:
+Epoch 1/10
+Student 2 Train Loss: 1.4481, Train Acc: 0.5061
+Epoch 2/10
+Student 2 Train Loss: 0.5679, Train Acc: 0.7116
+Epoch 3/10
+Student 2 Train Loss: 0.5295, Train Acc: 0.7462
+Epoch 4/10
+Student 2 Train Loss: 0.5034, Train Acc: 0.7601
+Epoch 5/10
+Student 2 Train Loss: 0.4824, Train Acc: 0.7753
+Epoch 6/10
+Student 2 Train Loss: 0.4589, Train Acc: 0.7872
+Epoch 7/10
+Student 2 Train Loss: 0.4395, Train Acc: 0.8017
+Epoch 8/10
+Student 2 Train Loss: 0.4216, Train Acc: 0.8092
+Epoch 9/10
+Student 2 Train Loss: 0.3998, Train Acc: 0.8244
+Epoch 10/10
+Student 2 Train Loss: 0.3851, Train Acc: 0.8293
+
+Distilling Student 3:
+Distill Loss: 3.5413
+
+Training Student 3:
+Epoch 1/10
+Student 3 Train Loss: 1.3791, Train Acc: 0.5183
+Epoch 2/10
+Student 3 Train Loss: 0.5252, Train Acc: 0.7434
+Epoch 3/10
+Student 3 Train Loss: 0.4293, Train Acc: 0.8024
+Epoch 4/10
+Student 3 Train Loss: 0.3886, Train Acc: 0.8270
+Epoch 5/10
+Student 3 Train Loss: 0.3723, Train Acc: 0.8388
+Epoch 6/10
+Student 3 Train Loss: 0.3458, Train Acc: 0.8503
+Epoch 7/10
+Student 3 Train Loss: 0.3397, Train Acc: 0.8570
+Epoch 8/10
+Student 3 Train Loss: 0.3329, Train Acc: 0.8579
+Epoch 9/10
+Student 3 Train Loss: 0.3237, Train Acc: 0.8638
+Epoch 10/10
+Student 3 Train Loss: 0.3103, Train Acc: 0.8681
+
+Distilling Student 4:
+Distill Loss: 3.6543
+
+Training Student 4:
+Epoch 1/10
+Student 4 Train Loss: 1.5480, Train Acc: 0.5086
+Epoch 2/10
+Student 4 Train Loss: 0.4319, Train Acc: 0.8122
+Epoch 3/10
+Student 4 Train Loss: 0.2246, Train Acc: 0.9081
+Epoch 4/10
+Student 4 Train Loss: 0.1720, Train Acc: 0.9320
+Epoch 5/10
+Student 4 Train Loss: 0.1559, Train Acc: 0.9374
+Epoch 6/10
+Student 4 Train Loss: 0.1497, Train Acc: 0.9410
+Epoch 7/10
+Student 4 Train Loss: 0.1407, Train Acc: 0.9472
+Epoch 8/10
+Student 4 Train Loss: 0.1187, Train Acc: 0.9539
+Epoch 9/10
+Student 4 Train Loss: 0.1144, Train Acc: 0.9562
+Epoch 10/10
+Student 4 Train Loss: 0.1145, Train Acc: 0.9561
+
+Distilling Student 5:
+Distill Loss: 3.4100
+
+Training Student 5:
+Epoch 1/10
+Student 5 Train Loss: 0.2996, Train Acc: 0.8765
+Epoch 2/10
+Student 5 Train Loss: 0.2561, Train Acc: 0.8949
+Epoch 3/10
+Student 5 Train Loss: 0.2309, Train Acc: 0.9051
+Epoch 4/10
+Student 5 Train Loss: 0.2097, Train Acc: 0.9164
+Epoch 5/10
+Student 5 Train Loss: 0.1931, Train Acc: 0.9188
+Epoch 6/10
+Student 5 Train Loss: 0.1729, Train Acc: 0.9275
+Epoch 7/10
+Student 5 Train Loss: 0.1589, Train Acc: 0.9381
+Epoch 8/10
+Student 5 Train Loss: 0.1591, Train Acc: 0.9367
+Epoch 9/10
+Student 5 Train Loss: 0.1378, Train Acc: 0.9445
+Epoch 10/10
+Student 5 Train Loss: 0.1339, Train Acc: 0.9462
+
+Training MoE Model:
+MoE Train Loss: 1.5879, Train Acc: 0.5698
+MoE Train Loss: 0.4724, Train Acc: 0.7887
+MoE Train Loss: 0.3837, Train Acc: 0.8366
+MoE Train Loss: 0.3244, Train Acc: 0.8612
+MoE Train Loss: 0.2744, Train Acc: 0.8891
+MoE Train Loss: 0.2330, Train Acc: 0.9117
+MoE Train Loss: 0.2107, Train Acc: 0.9182
+MoE Train Loss: 0.1857, Train Acc: 0.9306
+MoE Train Loss: 0.1628, Train Acc: 0.9412
+MoE Train Loss: 0.1464, Train Acc: 0.9471
+
+Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.1177, Accuracy: 0.9670
+Latency per Image: 0.003394 secs
+FLOPs per Image: 0.58 MFLOPs
+
+MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add encountered 4 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.1, students.1.avgpool, students.1.conv_initial, students.1.conv_initial.0, students.1.conv_initial.1, students.1.conv_initial.2, students.1.conv_initial.3, students.1.fc1, students.1.fc2, students.1.flatten, students.1.layer1, students.1.layer1.0, students.1.layer1.0.bn, students.1.layer1.0.conv, students.1.layer1.0.relu, students.1.layer1.1, students.1.layer1.1.bn, students.1.layer1.1.conv, students.1.layer1.1.relu, students.1.layer2, students.1.layer2.0, students.1.layer2.0.bn, students.1.layer2.0.conv, students.1.layer2.0.downsample, students.1.layer2.0.downsample.0, students.1.layer2.0.downsample.1, students.1.layer2.0.relu, students.1.layer2.1, students.1.layer2.1.bn, students.1.layer2.1.conv, students.1.layer2.1.relu, students.1.relu, students.2, students.2.avgpool, students.2.conv_initial, students.2.conv_initial.0, students.2.conv_initial.1, students.2.conv_initial.2, students.2.conv_initial.3, students.2.fc1, students.2.fc2, students.2.flatten, students.2.layer1, students.2.layer1.0, students.2.layer1.0.bn, students.2.layer1.0.conv, students.2.layer1.0.relu, students.2.layer1.1, students.2.layer1.1.bn, students.2.layer1.1.conv, students.2.layer1.1.relu, students.2.layer2, students.2.layer2.0, students.2.layer2.0.bn, students.2.layer2.0.conv, students.2.layer2.0.downsample, students.2.layer2.0.downsample.0, students.2.layer2.0.downsample.1, students.2.layer2.0.relu, students.2.layer2.1, students.2.layer2.1.bn, students.2.layer2.1.conv, students.2.layer2.1.relu, students.2.relu, students.3, students.3.avgpool, students.3.conv_initial, students.3.conv_initial.0, students.3.conv_initial.1, students.3.conv_initial.2, students.3.conv_initial.3, students.3.fc1, students.3.fc2, students.3.flatten, students.3.layer1, students.3.layer1.0, students.3.layer1.0.bn, students.3.layer1.0.conv, students.3.layer1.0.relu, students.3.layer1.1, students.3.layer1.1.bn, students.3.layer1.1.conv, students.3.layer1.1.relu, students.3.layer2, students.3.layer2.0, students.3.layer2.0.bn, students.3.layer2.0.conv, students.3.layer2.0.downsample, students.3.layer2.0.downsample.0, students.3.layer2.0.downsample.1, students.3.layer2.0.relu, students.3.layer2.1, students.3.layer2.1.bn, students.3.layer2.1.conv, students.3.layer2.1.relu, students.3.relu, students.4, students.4.avgpool, students.4.conv_initial, students.4.conv_initial.0, students.4.conv_initial.1, students.4.conv_initial.2, students.4.conv_initial.3, students.4.fc1, students.4.fc2, students.4.flatten, students.4.layer1, students.4.layer1.0, students.4.layer1.0.bn, students.4.layer1.0.conv, students.4.layer1.0.relu, students.4.layer1.1, students.4.layer1.1.bn, students.4.layer1.1.conv, students.4.layer1.1.relu, students.4.layer2, students.4.layer2.0, students.4.layer2.0.bn, students.4.layer2.0.conv, students.4.layer2.0.downsample, students.4.layer2.0.downsample.0, students.4.layer2.0.downsample.1, students.4.layer2.0.relu, students.4.layer2.1, students.4.layer2.1.bn, students.4.layer2.1.conv, students.4.layer2.1.relu, students.4.relu
+MoE Results:
+Loss: 2.1395, Accuracy: 0.6845
+Latency per Image: 0.002555 secs
+FLOPs per Image: 0.04 MFLOPs

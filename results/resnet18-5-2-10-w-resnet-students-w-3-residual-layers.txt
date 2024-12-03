@@ -1,0 +1,178 @@
+Teacher:
+Epoch 1/10
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+Teacher Train Loss: 0.2382, Train Acc: 0.9120
+Epoch 2/10
+Teacher Train Loss: 0.1054, Train Acc: 0.9607
+Epoch 3/10
+Teacher Train Loss: 0.0713, Train Acc: 0.9741
+Epoch 4/10
+Teacher Train Loss: 0.0560, Train Acc: 0.9796
+Epoch 5/10
+Teacher Train Loss: 0.0441, Train Acc: 0.9847
+Epoch 6/10
+Teacher Train Loss: 0.0434, Train Acc: 0.9830
+Epoch 7/10
+Teacher Train Loss: 0.0397, Train Acc: 0.9856
+Epoch 8/10
+Teacher Train Loss: 0.0248, Train Acc: 0.9914
+Epoch 9/10
+Teacher Train Loss: 0.0429, Train Acc: 0.9854
+Epoch 10/10
+Teacher Train Loss: 0.0245, Train Acc: 0.9909
+
+Distilling Student 1:
+Distill Loss: 2.5737
+
+Training Student 1:
+Epoch 1/10
+Student 1 Train Loss: 1.1231, Train Acc: 0.6156
+Epoch 2/10
+Student 1 Train Loss: 0.2873, Train Acc: 0.8794
+Epoch 3/10
+Student 1 Train Loss: 0.2153, Train Acc: 0.9163
+Epoch 4/10
+Student 1 Train Loss: 0.1783, Train Acc: 0.9308
+Epoch 5/10
+Student 1 Train Loss: 0.1598, Train Acc: 0.9395
+Epoch 6/10
+Student 1 Train Loss: 0.1412, Train Acc: 0.9438
+Epoch 7/10
+Student 1 Train Loss: 0.1126, Train Acc: 0.9570
+Epoch 8/10
+Student 1 Train Loss: 0.1017, Train Acc: 0.9621
+Epoch 9/10
+Student 1 Train Loss: 0.0898, Train Acc: 0.9673
+Epoch 10/10
+Student 1 Train Loss: 0.0694, Train Acc: 0.9747
+
+Distilling Student 2:
+Distill Loss: 2.4688
+
+Training Student 2:
+Epoch 1/10
+Student 2 Train Loss: 1.2096, Train Acc: 0.4963
+Epoch 2/10
+Student 2 Train Loss: 0.5762, Train Acc: 0.6980
+Epoch 3/10
+Student 2 Train Loss: 0.4832, Train Acc: 0.7752
+Epoch 4/10
+Student 2 Train Loss: 0.4260, Train Acc: 0.8095
+Epoch 5/10
+Student 2 Train Loss: 0.3804, Train Acc: 0.8338
+Epoch 6/10
+Student 2 Train Loss: 0.3494, Train Acc: 0.8498
+Epoch 7/10
+Student 2 Train Loss: 0.3139, Train Acc: 0.8683
+Epoch 8/10
+Student 2 Train Loss: 0.2818, Train Acc: 0.8827
+Epoch 9/10
+Student 2 Train Loss: 0.2444, Train Acc: 0.9004
+Epoch 10/10
+Student 2 Train Loss: 0.2224, Train Acc: 0.9099
+
+Distilling Student 3:
+Distill Loss: 2.5991
+
+Training Student 3:
+Epoch 1/10
+Student 3 Train Loss: 1.1598, Train Acc: 0.5505
+Epoch 2/10
+Student 3 Train Loss: 0.4696, Train Acc: 0.7749
+Epoch 3/10
+Student 3 Train Loss: 0.3865, Train Acc: 0.8296
+Epoch 4/10
+Student 3 Train Loss: 0.3320, Train Acc: 0.8554
+Epoch 5/10
+Student 3 Train Loss: 0.3002, Train Acc: 0.8763
+Epoch 6/10
+Student 3 Train Loss: 0.2617, Train Acc: 0.8913
+Epoch 7/10
+Student 3 Train Loss: 0.2315, Train Acc: 0.9076
+Epoch 8/10
+Student 3 Train Loss: 0.2071, Train Acc: 0.9179
+Epoch 9/10
+Student 3 Train Loss: 0.1815, Train Acc: 0.9295
+Epoch 10/10
+Student 3 Train Loss: 0.1566, Train Acc: 0.9375
+
+Distilling Student 4:
+Distill Loss: 2.5097
+
+Training Student 4:
+Epoch 1/10
+Student 4 Train Loss: 1.1927, Train Acc: 0.5647
+Epoch 2/10
+Student 4 Train Loss: 0.2714, Train Acc: 0.8892
+Epoch 3/10
+Student 4 Train Loss: 0.1616, Train Acc: 0.9366
+Epoch 4/10
+Student 4 Train Loss: 0.1294, Train Acc: 0.9524
+Epoch 5/10
+Student 4 Train Loss: 0.1144, Train Acc: 0.9548
+Epoch 6/10
+Student 4 Train Loss: 0.0882, Train Acc: 0.9674
+Epoch 7/10
+Student 4 Train Loss: 0.0709, Train Acc: 0.9741
+Epoch 8/10
+Student 4 Train Loss: 0.0603, Train Acc: 0.9780
+Epoch 9/10
+Student 4 Train Loss: 0.0478, Train Acc: 0.9843
+Epoch 10/10
+Student 4 Train Loss: 0.0479, Train Acc: 0.9831
+
+Distilling Student 5:
+Distill Loss: 2.5665
+
+Training Student 5:
+Epoch 1/10
+Student 5 Train Loss: 0.2346, Train Acc: 0.9066
+Epoch 2/10
+Student 5 Train Loss: 0.1984, Train Acc: 0.9180
+Epoch 3/10
+Student 5 Train Loss: 0.1721, Train Acc: 0.9291
+Epoch 4/10
+Student 5 Train Loss: 0.1367, Train Acc: 0.9448
+Epoch 5/10
+Student 5 Train Loss: 0.1239, Train Acc: 0.9515
+Epoch 6/10
+Student 5 Train Loss: 0.1123, Train Acc: 0.9572
+Epoch 7/10
+Student 5 Train Loss: 0.0917, Train Acc: 0.9658
+Epoch 8/10
+Student 5 Train Loss: 0.0790, Train Acc: 0.9681
+Epoch 9/10
+Student 5 Train Loss: 0.0624, Train Acc: 0.9768
+Epoch 10/10
+Student 5 Train Loss: 0.0628, Train Acc: 0.9772
+
+Training MoE Model:
+MoE Train Loss: 1.7974, Train Acc: 0.4758
+MoE Train Loss: 0.4587, Train Acc: 0.7963
+MoE Train Loss: 0.3050, Train Acc: 0.8749
+MoE Train Loss: 0.2216, Train Acc: 0.9131
+MoE Train Loss: 0.1603, Train Acc: 0.9415
+MoE Train Loss: 0.1248, Train Acc: 0.9553
+MoE Train Loss: 0.0838, Train Acc: 0.9740
+MoE Train Loss: 0.0583, Train Acc: 0.9831
+MoE Train Loss: 0.0322, Train Acc: 0.9928
+MoE Train Loss: 0.0221, Train Acc: 0.9952
+
+Teacher model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+Teacher Results:
+Loss: 0.1150, Accuracy: 0.9645
+Latency per Image: 0.002352 secs
+FLOPs per Image: 0.58 MFLOPs
+
+MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add encountered 6 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.0, students.0.avgpool, students.0.conv_initial, students.0.conv_initial.0, students.0.conv_initial.1, students.0.conv_initial.2, students.0.conv_initial.3, students.0.fc1, students.0.fc2, students.0.flatten, students.0.layer1, students.0.layer1.0, students.0.layer1.0.bn, students.0.layer1.0.conv, students.0.layer1.0.relu, students.0.layer1.1, students.0.layer1.1.bn, students.0.layer1.1.conv, students.0.layer1.1.relu, students.0.layer2, students.0.layer2.0, students.0.layer2.0.bn, students.0.layer2.0.conv, students.0.layer2.0.downsample, students.0.layer2.0.downsample.0, students.0.layer2.0.downsample.1, students.0.layer2.0.relu, students.0.layer2.1, students.0.layer2.1.bn, students.0.layer2.1.conv, students.0.layer2.1.relu, students.0.layer3, students.0.layer3.0, students.0.layer3.0.bn, students.0.layer3.0.conv, students.0.layer3.0.downsample, students.0.layer3.0.downsample.0, students.0.layer3.0.downsample.1, students.0.layer3.0.relu, students.0.layer3.1, students.0.layer3.1.bn, students.0.layer3.1.conv, students.0.layer3.1.relu, students.0.relu, students.1, students.1.avgpool, students.1.conv_initial, students.1.conv_initial.0, students.1.conv_initial.1, students.1.conv_initial.2, students.1.conv_initial.3, students.1.fc1, students.1.fc2, students.1.flatten, students.1.layer1, students.1.layer1.0, students.1.layer1.0.bn, students.1.layer1.0.conv, students.1.layer1.0.relu, students.1.layer1.1, students.1.layer1.1.bn, students.1.layer1.1.conv, students.1.layer1.1.relu, students.1.layer2, students.1.layer2.0, students.1.layer2.0.bn, students.1.layer2.0.conv, students.1.layer2.0.downsample, students.1.layer2.0.downsample.0, students.1.layer2.0.downsample.1, students.1.layer2.0.relu, students.1.layer2.1, students.1.layer2.1.bn, students.1.layer2.1.conv, students.1.layer2.1.relu, students.1.layer3, students.1.layer3.0, students.1.layer3.0.bn, students.1.layer3.0.conv, students.1.layer3.0.downsample, students.1.layer3.0.downsample.0, students.1.layer3.0.downsample.1, students.1.layer3.0.relu, students.1.layer3.1, students.1.layer3.1.bn, students.1.layer3.1.conv, students.1.layer3.1.relu, students.1.relu, students.2, students.2.avgpool, students.2.conv_initial, students.2.conv_initial.0, students.2.conv_initial.1, students.2.conv_initial.2, students.2.conv_initial.3, students.2.fc1, students.2.fc2, students.2.flatten, students.2.layer1, students.2.layer1.0, students.2.layer1.0.bn, students.2.layer1.0.conv, students.2.layer1.0.relu, students.2.layer1.1, students.2.layer1.1.bn, students.2.layer1.1.conv, students.2.layer1.1.relu, students.2.layer2, students.2.layer2.0, students.2.layer2.0.bn, students.2.layer2.0.conv, students.2.layer2.0.downsample, students.2.layer2.0.downsample.0, students.2.layer2.0.downsample.1, students.2.layer2.0.relu, students.2.layer2.1, students.2.layer2.1.bn, students.2.layer2.1.conv, students.2.layer2.1.relu, students.2.layer3, students.2.layer3.0, students.2.layer3.0.bn, students.2.layer3.0.conv, students.2.layer3.0.downsample, students.2.layer3.0.downsample.0, students.2.layer3.0.downsample.1, students.2.layer3.0.relu, students.2.layer3.1, students.2.layer3.1.bn, students.2.layer3.1.conv, students.2.layer3.1.relu, students.2.relu, students.3, students.3.avgpool, students.3.conv_initial, students.3.conv_initial.0, students.3.conv_initial.1, students.3.conv_initial.2, students.3.conv_initial.3, students.3.fc1, students.3.fc2, students.3.flatten, students.3.layer1, students.3.layer1.0, students.3.layer1.0.bn, students.3.layer1.0.conv, students.3.layer1.0.relu, students.3.layer1.1, students.3.layer1.1.bn, students.3.layer1.1.conv, students.3.layer1.1.relu, students.3.layer2, students.3.layer2.0, students.3.layer2.0.bn, students.3.layer2.0.conv, students.3.layer2.0.downsample, students.3.layer2.0.downsample.0, students.3.layer2.0.downsample.1, students.3.layer2.0.relu, students.3.layer2.1, students.3.layer2.1.bn, students.3.layer2.1.conv, students.3.layer2.1.relu, students.3.layer3, students.3.layer3.0, students.3.layer3.0.bn, students.3.layer3.0.conv, students.3.layer3.0.downsample, students.3.layer3.0.downsample.0, students.3.layer3.0.downsample.1, students.3.layer3.0.relu, students.3.layer3.1, students.3.layer3.1.bn, students.3.layer3.1.conv, students.3.layer3.1.relu, students.3.relu
+MoE Results:
+Loss: 2.3823, Accuracy: 0.6355
+Latency per Image: 0.001388 secs
+FLOPs per Image: 0.06 MFLOPs

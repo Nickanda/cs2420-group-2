@@ -141,12 +141,12 @@ class StudentModel(nn.Module):
         # Define residual layers using single-convolution residual blocks
         self.layer1 = self._make_layer(SingleConvResidualBlock, 16, blocks=2, stride=1)
         self.layer2 = self._make_layer(SingleConvResidualBlock, 32, blocks=2, stride=2)
-        self.layer3 = self._make_layer(SingleConvResidualBlock, 64, blocks=2, stride=2)
+        # self.layer3 = self._make_layer(SingleConvResidualBlock, 64, blocks=2, stride=2)
 
         # Classification head
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(64, config.hidden_dim)
+        self.fc1 = nn.Linear(32, config.hidden_dim) # (64, config.hidden_dim)
         self.relu = nn.ReLU(inplace=True)
         self.fc2 = nn.Linear(config.hidden_dim, num_classes)
 
