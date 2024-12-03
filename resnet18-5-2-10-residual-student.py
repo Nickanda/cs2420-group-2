@@ -346,8 +346,14 @@ class MoE(nn.Module):
         input_features = x.view(batch_size, -1)
         
         _, best_experts, _ = self.gating_net(input_features)
+        
+        # Access the output features of the last fully connected layer (fc2)
+        out_features = self.students[0].fc2.out_features
 
-        outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
+        # Now, create an output tensor of the correct shape
+        outputs = torch.zeros(batch_size, out_features).to(x.device)
+
+        # outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
 
         for i, expert_idx in enumerate(best_experts):
             outputs[i] = self.students[expert_idx.item()](x[i].unsqueeze(0)).squeeze(0)
