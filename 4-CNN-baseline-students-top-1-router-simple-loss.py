@@ -324,7 +324,7 @@ def main():
           # Combined loss
           #loss = classification_loss + 0.1 * diversity_loss + 20.0 * specialization_loss + 0.1 * entropy_loss + 0.5 * underutilization_loss
           #loss = classification_loss + 0.1 * diversity_loss + 50.0 * specialization_loss + 0.1 * entropy_loss + 1.0 * underutilization_loss
-          loss = classification_loss + 0.1 * diversity_loss + 100.0 * specialization_loss + 0.1 * entropy_loss + 1.0 * underutilization_loss
+          loss = classification_loss + 0.1 * diversity_loss # + 100.0 * specialization_loss + 0.1 * entropy_loss + 1.0 * underutilization_loss
 
           # Penalize uniform router probabilities
           router_diversity_loss = torch.sum((gating_probs.mean(dim=0) - 1.0 / config.num_students) ** 2)

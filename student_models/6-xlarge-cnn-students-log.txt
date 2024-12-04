@@ -1,0 +1,139 @@
+Distilling Teacher Knowledge into Students:
+
+Distill Loss: 7.3657, Acc: 0.4708
+Distill Loss: 4.6786, Acc: 0.6792
+Distill Loss: 3.5905, Acc: 0.7567
+Distill Loss: 2.9392, Acc: 0.8030
+Distill Loss: 2.4702, Acc: 0.8372
+Distill Loss: 2.0820, Acc: 0.8669
+Distill Loss: 1.8233, Acc: 0.8858
+Distill Loss: 1.5893, Acc: 0.9033
+Distill Loss: 1.3588, Acc: 0.9203
+Distill Loss: 1.1806, Acc: 0.9345
+Distill Loss: 1.0398, Acc: 0.9447
+Distill Loss: 0.8894, Acc: 0.9576
+Distill Loss: 0.8266, Acc: 0.9618
+Distill Loss: 0.7663, Acc: 0.9655
+Distill Loss: 0.6969, Acc: 0.9704
+
+Evaluating Student1's Model:
+
+Student Results:
+Loss: 0.6944, Accuracy: 0.8539
+Latency per Image: 0.002281 secs
+FLOPs per Image: 3.30 MFLOPs
+
+Distill Loss: 7.2852, Acc: 0.4725
+Distill Loss: 4.5766, Acc: 0.6832
+Distill Loss: 3.5070, Acc: 0.7618
+Distill Loss: 2.8308, Acc: 0.8127
+Distill Loss: 2.3810, Acc: 0.8451
+Distill Loss: 2.0447, Acc: 0.8685
+Distill Loss: 1.7531, Acc: 0.8911
+Distill Loss: 1.4915, Acc: 0.9106
+Distill Loss: 1.2900, Acc: 0.9258
+Distill Loss: 1.1596, Acc: 0.9363
+Distill Loss: 1.0005, Acc: 0.9480
+Distill Loss: 0.8894, Acc: 0.9582
+Distill Loss: 0.7942, Acc: 0.9640
+Distill Loss: 0.7186, Acc: 0.9694
+Distill Loss: 0.6955, Acc: 0.9707
+
+Evaluating Student2's Model:
+
+Student Results:
+Loss: 0.7814, Accuracy: 0.8468
+Latency per Image: 0.001046 secs
+FLOPs per Image: 3.30 MFLOPs
+
+Distill Loss: 7.6063, Acc: 0.4495
+Distill Loss: 4.7656, Acc: 0.6701
+Distill Loss: 3.6220, Acc: 0.7536
+Distill Loss: 2.9798, Acc: 0.8029
+Distill Loss: 2.4846, Acc: 0.8371
+Distill Loss: 2.1648, Acc: 0.8602
+Distill Loss: 1.8407, Acc: 0.8829
+Distill Loss: 1.5902, Acc: 0.9021
+Distill Loss: 1.3920, Acc: 0.9184
+Distill Loss: 1.2018, Acc: 0.9336
+Distill Loss: 1.0676, Acc: 0.9438
+Distill Loss: 0.9268, Acc: 0.9544
+Distill Loss: 0.8448, Acc: 0.9603
+Distill Loss: 0.7577, Acc: 0.9676
+Distill Loss: 0.7269, Acc: 0.9701
+
+Evaluating Student3's Model:
+
+Student Results:
+Loss: 0.6975, Accuracy: 0.8498
+Latency per Image: 0.001011 secs
+FLOPs per Image: 3.30 MFLOPs
+
+Distill Loss: 7.4048, Acc: 0.4633
+Distill Loss: 4.8323, Acc: 0.6669
+Distill Loss: 3.6952, Acc: 0.7481
+Distill Loss: 2.9978, Acc: 0.7991
+Distill Loss: 2.5282, Acc: 0.8350
+Distill Loss: 2.1511, Acc: 0.8612
+Distill Loss: 1.8685, Acc: 0.8816
+Distill Loss: 1.6139, Acc: 0.9016
+Distill Loss: 1.3855, Acc: 0.9190
+Distill Loss: 1.2086, Acc: 0.9320
+Distill Loss: 1.0593, Acc: 0.9440
+Distill Loss: 0.9557, Acc: 0.9522
+Distill Loss: 0.8628, Acc: 0.9592
+Distill Loss: 0.7758, Acc: 0.9653
+Distill Loss: 0.7350, Acc: 0.9687
+
+Evaluating Student4's Model:
+
+Student Results:
+Loss: 0.8130, Accuracy: 0.8460
+Latency per Image: 0.001168 secs
+FLOPs per Image: 3.30 MFLOPs
+
+Distill Loss: 7.5430, Acc: 0.4546
+Distill Loss: 4.6785, Acc: 0.6745
+Distill Loss: 3.5791, Acc: 0.7572
+Distill Loss: 2.9445, Acc: 0.8035
+Distill Loss: 2.4968, Acc: 0.8349
+Distill Loss: 2.1362, Acc: 0.8601
+Distill Loss: 1.8466, Acc: 0.8824
+Distill Loss: 1.5825, Acc: 0.9053
+Distill Loss: 1.3678, Acc: 0.9202
+Distill Loss: 1.2000, Acc: 0.9327
+Distill Loss: 1.0523, Acc: 0.9437
+Distill Loss: 0.9374, Acc: 0.9529
+Distill Loss: 0.8703, Acc: 0.9583
+Distill Loss: 0.7538, Acc: 0.9669
+Distill Loss: 0.7307, Acc: 0.9691
+
+Evaluating Student5's Model:
+
+Student Results:
+Loss: 0.6598, Accuracy: 0.8604
+Latency per Image: 0.001746 secs
+FLOPs per Image: 3.30 MFLOPs
+
+Distill Loss: 7.6849, Acc: 0.4407
+Distill Loss: 4.8932, Acc: 0.6615
+Distill Loss: 3.7627, Acc: 0.7415
+Distill Loss: 3.0168, Acc: 0.7970
+Distill Loss: 2.5623, Acc: 0.8318
+Distill Loss: 2.1915, Acc: 0.8580
+Distill Loss: 1.8909, Acc: 0.8801
+Distill Loss: 1.6239, Acc: 0.9004
+Distill Loss: 1.4116, Acc: 0.9162
+Distill Loss: 1.2319, Acc: 0.9300
+Distill Loss: 1.0735, Acc: 0.9434
+Distill Loss: 0.9749, Acc: 0.9500
+Distill Loss: 0.8532, Acc: 0.9600
+Distill Loss: 0.7820, Acc: 0.9646
+Distill Loss: 0.7210, Acc: 0.9697
+
+Evaluating Student6's Model:
+
+Student Results:
+Loss: 0.8111, Accuracy: 0.8439
+Latency per Image: 0.001499 secs
+FLOPs per Image: 3.30 MFLOPs
