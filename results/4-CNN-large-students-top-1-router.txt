@@ -1,0 +1,46 @@
+Training MoE Model:
+Epoch 1/15
+<ipython-input-2-bae436720d02>:279: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load("teacher.pth", map_location=device))
+<ipython-input-2-bae436720d02>:289: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  student.load_state_dict(torch.load(student_path, map_location=device))
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+MoE Train Loss: 100.1514, Train Acc: 0.8211
+Epoch 2/15
+MoE Train Loss: 96.5637, Train Acc: 0.8481
+Epoch 3/15
+MoE Train Loss: 95.9276, Train Acc: 0.8590
+Epoch 4/15
+MoE Train Loss: 95.8025, Train Acc: 0.8718
+Epoch 5/15
+MoE Train Loss: 95.8175, Train Acc: 0.8845
+Epoch 6/15
+MoE Train Loss: 95.8042, Train Acc: 0.8883
+Epoch 7/15
+MoE Train Loss: 95.7833, Train Acc: 0.8982
+Epoch 8/15
+MoE Train Loss: 95.6314, Train Acc: 0.8964
+Epoch 9/15
+MoE Train Loss: 95.6286, Train Acc: 0.9112
+Epoch 10/15
+MoE Train Loss: 95.5346, Train Acc: 0.9082
+Epoch 11/15
+MoE Train Loss: 95.3002, Train Acc: 0.9074
+Epoch 12/15
+MoE Train Loss: 95.3998, Train Acc: 0.9048
+Epoch 13/15
+MoE Train Loss: 95.2949, Train Acc: 0.9087
+Epoch 14/15
+MoE Train Loss: 95.1338, Train Acc: 0.9106
+Epoch 15/15
+MoE Train Loss: 95.2516, Train Acc: 0.9176
+
+Evaluating MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 3 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.10, students.0.network.11, students.0.network.12, students.0.network.13, students.0.network.14, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.10, students.1.network.11, students.1.network.12, students.1.network.13, students.1.network.14, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.2, students.2.network, students.2.network.0, students.2.network.1, students.2.network.10, students.2.network.11, students.2.network.12, students.2.network.13, students.2.network.14, students.2.network.2, students.2.network.3, students.2.network.4, students.2.network.5, students.2.network.6, students.2.network.7, students.2.network.8, students.2.network.9
+MoE Results:
+Loss: 1.5888, Accuracy: 0.6942
+Latency per Image: 0.001456 secs
+FLOPs per Image: 0.47 MFLOPs
