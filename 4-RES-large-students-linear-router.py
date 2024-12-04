@@ -59,24 +59,109 @@ class TeacherModel(nn.Module):
     def forward(self, x):
         return self.network(x)
 
-class StudentModel(nn.Module):
-    def __init__(self):
-        super(StudentModel, self).__init__()
-        self.network = nn.Sequential(
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Flatten(),
-            nn.Linear(8 * 8 * 64, config.hidden_dim),
-            nn.ReLU(),
-            nn.Linear(config.hidden_dim, config.num_classes)
+class SingleConvResidualBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, stride=1, downsample=None):
+        super(SingleConvResidualBlock, self).__init__()
+        self.conv = nn.Conv2d(
+            in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False
         )
+        self.bn = nn.BatchNorm2d(out_channels)
+        self.relu = nn.ReLU(inplace=True)
+        self.downsample = downsample  # To match dimensions if needed
 
     def forward(self, x):
-        return self.network(x)
+        identity = x  # Save input for the skip connection
+
+        out = self.conv(x)
+        out = self.bn(out)
+        out = self.relu(out)
+
+        # If dimensions mismatch, adjust the input
+        if self.downsample is not None:
+            identity = self.downsample(x)
+
+        out = out + identity  # Add skip connection without modifying in place
+        out = self.relu(out)
+
+        return out
+    
+class StudentModel(nn.Module):
+    def __init__(self, num_classes=config.num_classes):
+        super(StudentModel, self).__init__()
+        self.in_channels = 16  # Initial number of channels
+
+        # Initial convolution layer
+        self.conv_initial = nn.Sequential(
+            nn.Conv2d(3, self.in_channels, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(self.in_channels),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2)  # Reduces spatial dimensions by half
+        )
+
+        # Define residual layers using single-convolution residual blocks
+        self.layer1 = self._make_layer(SingleConvResidualBlock, 16, blocks=2, stride=2)
+        self.layer1 = self._make_layer(SingleConvResidualBlock, 32, blocks=2, stride=2)
+        self.layer2 = self._make_layer(SingleConvResidualBlock, 64, blocks=2, stride=2)
+
+        # Classification head
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.flatten = nn.Flatten()
+        self.fc1 = nn.Linear(64, config.hidden_dim)
+        self.relu = nn.ReLU(inplace=True)
+        self.fc2 = nn.Linear(config.hidden_dim, num_classes)
+
+    # Initialize weights
+    def forward(self, x):
+        x = self.conv_initial(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+
+        x = self.avgpool(x)
+        x = self.flatten(x)
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+
+        return x
+
+    def _make_layer(self, block, out_channels, blocks, stride=1):
+        """
+        Creates a layer consisting of multiple single-convolution residual blocks.
+
+        Args:
+            block: The residual block class (SingleConvResidualBlock).
+            out_channels: Number of output channels for the blocks.
+            blocks: Number of residual blocks in this layer.
+            stride: Stride for the first block in this layer.
+
+        Returns:
+            A sequential container of residual blocks.
+        """
+        downsample = None
+        # If there's a change in the number of channels or stride, define a downsampling layer
+        if stride != 1 or self.in_channels != out_channels:
+            downsample = nn.Sequential(
+                nn.Conv2d(
+                    self.in_channels,
+                    out_channels,
+                    kernel_size=1,
+                    stride=stride,
+                    bias=False
+                ),
+                nn.BatchNorm2d(out_channels),
+            )
+
+        layers = []
+        # First block may need downsampling
+        layers.append(block(self.in_channels, out_channels, stride, downsample))
+        self.in_channels = out_channels  # Update for next blocks
+
+        # Remaining blocks
+        for _ in range(1, blocks):
+            layers.append(block(out_channels, out_channels))
+
+        return nn.Sequential(*layers)
 
 class GatingNetwork(nn.Module):
     def __init__(self, num_students, input_dim):
@@ -106,8 +191,15 @@ class MoE(nn.Module):
         batch_size = x.size(0)
         gating_probs = self.gating_net(x.view(batch_size, -1))  # Router probabilities
         best_experts = gating_probs.argmax(dim=1)  # Selected experts for each input
+        
+        # Access the output features of the last fully connected layer (fc2)
+        out_features = self.students[0].fc2.out_features
 
-        outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
+        # Now, create an output tensor of the correct shape
+        outputs = torch.zeros(batch_size, out_features).to(x.device)
+
+        # outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
+        
         for i, expert_idx in enumerate(best_experts):
             outputs[i] = self.students[expert_idx](x[i].unsqueeze(0)).squeeze(0)
 

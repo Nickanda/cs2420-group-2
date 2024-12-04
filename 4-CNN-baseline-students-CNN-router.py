@@ -106,7 +106,6 @@ class GatingNetwork(nn.Module):
     def forward(self, x):
         # x is expected to have shape [batch_size, 3, 32, 32]
         x = x.view(-1, 3, 32, 32)
-        
         features = self.conv_layers(x)
         logits = self.fc_layers(features)
         # Apply temperature scaling to logits before softmax
