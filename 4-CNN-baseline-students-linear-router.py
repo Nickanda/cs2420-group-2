@@ -141,7 +141,7 @@ def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, d
         total_loss += loss.item()
     
     print(f"Distill Loss: {total_loss / len(loader):.4f}")
-    print(f"Distill Acc: {num_correct / len(loader.dataset):.4f}")
+    print(f"Distill Acc: {num_correct / len(loader):.4f}")
     return total_loss / len(loader)
 
 def evaluate_with_metrics(model, loader, device, description="Model"):
