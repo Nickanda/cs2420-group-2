@@ -1,0 +1,50 @@
+Training MoE Model:
+Epoch 1/30 - Loss: 7.8358, Accuracy: 0.4572
+Epoch 2/30 - Loss: 5.7694, Accuracy: 0.5945
+Epoch 3/30 - Loss: 4.9129, Accuracy: 0.6538
+Epoch 4/30 - Loss: 4.3273, Accuracy: 0.6959
+Epoch 5/30 - Loss: 3.8625, Accuracy: 0.7310
+Epoch 6/30 - Loss: 3.4500, Accuracy: 0.7606
+Epoch 7/30 - Loss: 3.1021, Accuracy: 0.7879
+Epoch 8/30 - Loss: 2.8031, Accuracy: 0.8128
+Epoch 9/30 - Loss: 2.5283, Accuracy: 0.8351
+Epoch 10/30 - Loss: 2.2981, Accuracy: 0.8534
+Epoch 11/30 - Loss: 2.0711, Accuracy: 0.8739
+Epoch 12/30 - Loss: 1.9061, Accuracy: 0.8874
+Epoch 13/30 - Loss: 1.7651, Accuracy: 0.8987
+Epoch 14/30 - Loss: 1.6175, Accuracy: 0.9091
+Epoch 15/30 - Loss: 1.5201, Accuracy: 0.9151
+Epoch 16/30 - Loss: 1.4532, Accuracy: 0.9214
+Epoch 17/30 - Loss: 1.3872, Accuracy: 0.9251
+Epoch 18/30 - Loss: 1.3154, Accuracy: 0.9294
+Epoch 19/30 - Loss: 1.2375, Accuracy: 0.9334
+Epoch 20/30 - Loss: 1.1945, Accuracy: 0.9358
+Epoch 21/30 - Loss: 1.1453, Accuracy: 0.9371
+Epoch 22/30 - Loss: 1.1260, Accuracy: 0.9386
+Epoch 23/30 - Loss: 1.0895, Accuracy: 0.9409
+Epoch 24/30 - Loss: 1.0416, Accuracy: 0.9445
+Epoch 25/30 - Loss: 0.9951, Accuracy: 0.9470
+Epoch 26/30 - Loss: 0.9646, Accuracy: 0.9479
+Epoch 27/30 - Loss: 0.9362, Accuracy: 0.9494
+Epoch 28/30 - Loss: 0.9292, Accuracy: 0.9504
+Epoch 29/30 - Loss: 0.9125, Accuracy: 0.9514
+Epoch 30/30 - Loss: 0.8935, Accuracy: 0.9520
+
+Evaluating Teacher:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add_ encountered 8 time(s)
+
+Teacher - Evaluation Results:
+Loss: 0.9720, Accuracy: 0.8072
+Latency per Image: 0.002472 secs
+FLOPs per Image: 37118464
+
+Evaluating MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+router, router.input_projection, router.routing_layer, router.transformer, router.transformer.embeddings, router.transformer.embeddings.LayerNorm, router.transformer.embeddings.dropout, router.transformer.embeddings.position_embeddings, router.transformer.embeddings.token_type_embeddings, router.transformer.embeddings.word_embeddings, router.transformer.encoder, router.transformer.encoder.layer.0, router.transformer.encoder.layer.0.attention, router.transformer.encoder.layer.0.attention.output, router.transformer.encoder.layer.0.attention.output.LayerNorm, router.transformer.encoder.layer.0.attention.output.dense, router.transformer.encoder.layer.0.attention.output.dropout, router.transformer.encoder.layer.0.attention.self, router.transformer.encoder.layer.0.attention.self.dropout, router.transformer.encoder.layer.0.attention.self.key, router.transformer.encoder.layer.0.attention.self.query, router.transformer.encoder.layer.0.attention.self.value, router.transformer.encoder.layer.0.intermediate, router.transformer.encoder.layer.0.intermediate.dense, router.transformer.encoder.layer.0.intermediate.intermediate_act_fn, router.transformer.encoder.layer.0.output, router.transformer.encoder.layer.0.output.LayerNorm, router.transformer.encoder.layer.0.output.dense, router.transformer.encoder.layer.0.output.dropout, router.transformer.encoder.layer.1, router.transformer.encoder.layer.1.attention, router.transformer.encoder.layer.1.attention.output, router.transformer.encoder.layer.1.attention.output.LayerNorm, router.transformer.encoder.layer.1.attention.output.dense, router.transformer.encoder.layer.1.attention.output.dropout, router.transformer.encoder.layer.1.attention.self, router.transformer.encoder.layer.1.attention.self.dropout, router.transformer.encoder.layer.1.attention.self.key, router.transformer.encoder.layer.1.attention.self.query, router.transformer.encoder.layer.1.attention.self.value, router.transformer.encoder.layer.1.intermediate, router.transformer.encoder.layer.1.intermediate.dense, router.transformer.encoder.layer.1.intermediate.intermediate_act_fn, router.transformer.encoder.layer.1.output, router.transformer.encoder.layer.1.output.LayerNorm, router.transformer.encoder.layer.1.output.dense, router.transformer.encoder.layer.1.output.dropout, router.transformer.pooler, router.transformer.pooler.activation, router.transformer.pooler.dense, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.2, students.2.network, students.2.network.0, students.2.network.1, students.2.network.2, students.2.network.3, students.2.network.4, students.2.network.5, students.2.network.6, students.2.network.7, students.2.network.8, students.2.network.9
+
+MoE - Evaluation Results:
+Loss: 1.5228, Accuracy: 0.7201
+Latency per Image: 0.003712 secs
+FLOPs per Image: 6654464
