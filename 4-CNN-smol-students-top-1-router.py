@@ -81,36 +81,46 @@ class StudentModel(nn.Module):
 class GatingNetwork(nn.Module):
     def __init__(self, num_students, input_dim):
         super(GatingNetwork, self).__init__()
-        # Convolutional layers to extract spatial features
-        self.conv_layers = nn.Sequential(
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output: 32 x 32 x 32
-            nn.BatchNorm2d(32),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 16 x 16 x 32
-
-            nn.Conv2d(32, 64, kernel_size=3, padding=1), # Output: 16 x 16 x 64
-            nn.BatchNorm2d(64),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 8 x 8 x 64
-        )
-        # Fully connected layers to produce routing probabilities
-        self.fc_layers = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(8 * 8 * 64, 128),
+        self.network = nn.Sequential(
+            nn.Linear(input_dim, 128),
             nn.ReLU(),
             nn.Dropout(0.2),
-            nn.Linear(128, num_students)
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, num_students)
         )
         self.temperature = 5.0  # High initial temperature for exploration
 
     def forward(self, x):
-        # x is expected to have shape [batch_size, 3, 32, 32]
-        x = x.view(-1, 3, 32, 32)
-        features = self.conv_layers(x)
-        logits = self.fc_layers(features)
-        # Apply temperature scaling to logits before softmax
-        return F.softmax(logits / self.temperature, dim=1)
+        logits = self.network(x)
+        return F.softmax(logits / self.temperature, dim=1)  # Apply temperature scaling
 
+class Top1Gating(nn.Module):
+    def __init__(self, dim, num_gates, eps=1e-9, outer_expert_dims=tuple(), capacity_factor_train=1.25, capacity_factor_eval=2.0):
+        super().__init__()
+        self.eps = eps
+        self.num_gates = num_gates
+        self.w_gating = nn.Parameter(torch.randn(dim, num_gates))
+
+        self.capacity_factor_train = capacity_factor_train
+        self.capacity_factor_eval = capacity_factor_eval
+        self.temperature = 5.0  # High initial temperature for exploration
+
+    def forward(self, x, importance=None):
+        b, d = x.shape
+        num_gates = self.num_gates
+
+        raw_gates = torch.matmul(x, self.w_gating)
+        gating_probs = F.softmax(raw_gates / self.temperature, dim=-1)
+
+        gate_1, index_1 = gating_probs.max(dim=-1)
+        mask_1 = F.one_hot(index_1, num_gates).float()
+
+        density_1 = mask_1.mean(dim=0)
+        density_1_proxy = gating_probs.mean(dim=0)
+        loss = (density_1_proxy * density_1).mean() * float(num_gates ** 2)
+
+        return index_1, gating_probs
 
 class MoE(nn.Module):
     def __init__(self, students, gating_net):
@@ -120,8 +130,10 @@ class MoE(nn.Module):
 
     def forward(self, x, return_router_assignments=False):
         batch_size = x.size(0)
-        gating_probs = self.gating_net(x.view(batch_size, -1))  # Router probabilities
-        best_experts = gating_probs.argmax(dim=1)  # Selected experts for each input
+        # gating_probs = self.gating_net(x.view(batch_size, -1))  # Router probabilities
+        # best_experts = gating_probs.argmax(dim=1)  # Selected experts for each input
+        
+        best_experts, _ = self.gating_net(x.view(batch_size, -1)) # Selected experts for each input
 
         outputs = torch.zeros(batch_size, self.students[0].network[-1].out_features).to(x.device)
         for i, expert_idx in enumerate(best_experts):
@@ -264,7 +276,7 @@ def main():
 
     # Mixture of Experts Training
     print("\nTraining MoE Model:")
-    gating_net = GatingNetwork(num_students=config.num_students, input_dim=3 * 32 * 32).to(device)
+    gating_net = Top1Gating(dim=3 * 32 * 32, num_gates=config.num_students).to(device)
     moe_model = MoE(students, gating_net).to(device)
 
     optimizer_moe = AdamW(list(gating_net.parameters()) + [p for student in students for p in student.parameters()], lr=config.lr*2)
@@ -281,7 +293,7 @@ def main():
           optimizer_moe.zero_grad()
 
           # Forward pass
-          gating_probs = moe_model.gating_net(inputs.view(inputs.size(0), -1))
+          _, gating_probs = moe_model.gating_net(inputs.view(inputs.size(0), -1))
           outputs = moe_model(inputs)
 
           # Standard classification loss
