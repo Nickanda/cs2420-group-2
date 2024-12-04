@@ -1,0 +1,132 @@
+Distill Loss: 3.7926
+Distill Loss: 3.3631
+Distill Loss: 3.2372
+Distill Loss: 3.1573
+Distill Loss: 3.0980
+Distill Loss: 3.0543
+Distill Loss: 3.0242
+Distill Loss: 2.9889
+Distill Loss: 2.9593
+Distill Loss: 2.9441
+Distill Loss: 2.9368
+Distill Loss: 2.9062
+Distill Loss: 2.8937
+Distill Loss: 2.8843
+Distill Loss: 2.8710
+Distill Loss: 3.7695
+Distill Loss: 3.3565
+Distill Loss: 3.2557
+Distill Loss: 3.1753
+Distill Loss: 3.1174
+Distill Loss: 3.0717
+Distill Loss: 3.0246
+Distill Loss: 3.0055
+Distill Loss: 2.9711
+Distill Loss: 2.9489
+Distill Loss: 2.9369
+Distill Loss: 2.9113
+Distill Loss: 2.8923
+Distill Loss: 2.8800
+Distill Loss: 2.8746
+Distill Loss: 3.7674
+Distill Loss: 3.3471
+Distill Loss: 3.2385
+Distill Loss: 3.1616
+Distill Loss: 3.1036
+Distill Loss: 3.0637
+Distill Loss: 3.0307
+Distill Loss: 3.0076
+Distill Loss: 2.9845
+Distill Loss: 2.9525
+Distill Loss: 2.9472
+Distill Loss: 2.9257
+Distill Loss: 2.9050
+Distill Loss: 2.8966
+Distill Loss: 2.8816
+Distill Loss: 3.7669
+Distill Loss: 3.3499
+Distill Loss: 3.2454
+Distill Loss: 3.1726
+Distill Loss: 3.1187
+Distill Loss: 3.0736
+Distill Loss: 3.0379
+Distill Loss: 3.0071
+Distill Loss: 2.9805
+Distill Loss: 2.9564
+Distill Loss: 2.9355
+Distill Loss: 2.9251
+Distill Loss: 2.9009
+Distill Loss: 2.8942
+Distill Loss: 2.8741
+
+Training MoE Model:
+Epoch 1/30
+MoE Train Loss: 101.0787, Train Acc: 0.3768
+Epoch 2/30
+MoE Train Loss: 98.4614, Train Acc: 0.4993
+Epoch 3/30
+MoE Train Loss: 97.4474, Train Acc: 0.5346
+Epoch 4/30
+MoE Train Loss: 96.7675, Train Acc: 0.5604
+Epoch 5/30
+MoE Train Loss: 96.2450, Train Acc: 0.5788
+Epoch 6/30
+MoE Train Loss: 96.1668, Train Acc: 0.5950
+Epoch 7/30
+MoE Train Loss: 95.9368, Train Acc: 0.6037
+Epoch 8/30
+MoE Train Loss: 95.9514, Train Acc: 0.6141
+Epoch 9/30
+MoE Train Loss: 95.8317, Train Acc: 0.6237
+Epoch 10/30
+MoE Train Loss: 95.7135, Train Acc: 0.6307
+Epoch 11/30
+MoE Train Loss: 95.6854, Train Acc: 0.6355
+Epoch 12/30
+MoE Train Loss: 95.5818, Train Acc: 0.6440
+Epoch 13/30
+MoE Train Loss: 95.3944, Train Acc: 0.6511
+Epoch 14/30
+MoE Train Loss: 95.1323, Train Acc: 0.6561
+Epoch 15/30
+MoE Train Loss: 94.9832, Train Acc: 0.6651
+Epoch 16/30
+MoE Train Loss: 94.9433, Train Acc: 0.6734
+Epoch 17/30
+MoE Train Loss: 94.9078, Train Acc: 0.6730
+Epoch 18/30
+MoE Train Loss: 94.8023, Train Acc: 0.6782
+Epoch 19/30
+MoE Train Loss: 94.7273, Train Acc: 0.6837
+Epoch 20/30
+MoE Train Loss: 94.6487, Train Acc: 0.6849
+Epoch 21/30
+MoE Train Loss: 94.5663, Train Acc: 0.6932
+Epoch 22/30
+MoE Train Loss: 94.6631, Train Acc: 0.6961
+Epoch 23/30
+MoE Train Loss: 94.7340, Train Acc: 0.7014
+Epoch 24/30
+MoE Train Loss: 94.7314, Train Acc: 0.7009
+Epoch 25/30
+MoE Train Loss: 94.7377, Train Acc: 0.7101
+Epoch 26/30
+MoE Train Loss: 94.6680, Train Acc: 0.7106
+Epoch 27/30
+MoE Train Loss: 94.5423, Train Acc: 0.7122
+Epoch 28/30
+MoE Train Loss: 94.4919, Train Acc: 0.7162
+Epoch 29/30
+MoE Train Loss: 94.6106, Train Acc: 0.7162
+Epoch 30/30
+MoE Train Loss: 94.8216, Train Acc: 0.7123
+
+Evaluating MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 1 time(s)
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::add encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.0, students.0.avgpool, students.0.conv_initial, students.0.conv_initial.0, students.0.conv_initial.1, students.0.conv_initial.2, students.0.conv_initial.3, students.0.fc1, students.0.fc2, students.0.flatten, students.0.layer1, students.0.layer1.0, students.0.layer1.0.bn, students.0.layer1.0.conv, students.0.layer1.0.relu, students.0.layer2, students.0.layer2.0, students.0.layer2.0.bn, students.0.layer2.0.conv, students.0.layer2.0.downsample, students.0.layer2.0.downsample.0, students.0.layer2.0.downsample.1, students.0.layer2.0.relu, students.0.relu, students.1, students.1.avgpool, students.1.conv_initial, students.1.conv_initial.0, students.1.conv_initial.1, students.1.conv_initial.2, students.1.conv_initial.3, students.1.fc1, students.1.fc2, students.1.flatten, students.1.layer1, students.1.layer1.0, students.1.layer1.0.bn, students.1.layer1.0.conv, students.1.layer1.0.relu, students.1.layer2, students.1.layer2.0, students.1.layer2.0.bn, students.1.layer2.0.conv, students.1.layer2.0.downsample, students.1.layer2.0.downsample.0, students.1.layer2.0.downsample.1, students.1.layer2.0.relu, students.1.relu, students.3, students.3.avgpool, students.3.conv_initial, students.3.conv_initial.0, students.3.conv_initial.1, students.3.conv_initial.2, students.3.conv_initial.3, students.3.fc1, students.3.fc2, students.3.flatten, students.3.layer1, students.3.layer1.0, students.3.layer1.0.bn, students.3.layer1.0.conv, students.3.layer1.0.relu, students.3.layer2, students.3.layer2.0, students.3.layer2.0.bn, students.3.layer2.0.conv, students.3.layer2.0.downsample, students.3.layer2.0.downsample.0, students.3.layer2.0.downsample.1, students.3.layer2.0.relu, students.3.relu
+MoE Results:
+Loss: 3.8502, Accuracy: 0.3591
+Latency per Image: 0.001163 secs
+FLOPs per Image: 0.02 MFLOPs
