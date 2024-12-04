@@ -63,32 +63,17 @@ class StudentModel(nn.Module):
     def __init__(self):
         super(StudentModel, self).__init__()
         self.network = nn.Sequential(
-            # Original layers
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output: 32 x 32 x 32
+            nn.Conv2d(3, 32, kernel_size=3, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 16 x 16 x 32
-
-            nn.Conv2d(32, 64, kernel_size=3, padding=1), # Output: 16 x 16 x 64
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 8 x 8 x 64
-
-            # First additional convolutional layer
-            nn.Conv2d(64, 128, kernel_size=3, padding=1), # Output: 8 x 8 x 128
-            nn.ReLU(),
-
-            # Second additional convolutional layer
-            nn.Conv2d(128, 256, kernel_size=3, padding=1), # Output: 8 x 8 x 256
-            nn.ReLU(),
-
-            # Pooling layer to reduce spatial dimensions
-            nn.MaxPool2d(2, 2),                            # Output: 4 x 4 x 256
-
+            nn.MaxPool2d(2, 2),
             nn.Flatten(),
-            nn.Linear(4 * 4 * 256, config.hidden_dim),
+            nn.Linear(8 * 8 * 64, config.hidden_dim),
             nn.ReLU(),
             nn.Linear(config.hidden_dim, config.num_classes)
         )
-
 
     def forward(self, x):
         return self.network(x)
@@ -96,19 +81,36 @@ class StudentModel(nn.Module):
 class GatingNetwork(nn.Module):
     def __init__(self, num_students, input_dim):
         super(GatingNetwork, self).__init__()
-        self.network = nn.Sequential(
-            nn.Linear(input_dim, 128),
+        # Convolutional layers to extract spatial features
+        self.conv_layers = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output: 32 x 32 x 32
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),                          # Output: 16 x 16 x 32
+
+            nn.Conv2d(32, 64, kernel_size=3, padding=1), # Output: 16 x 16 x 64
+            nn.BatchNorm2d(64),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),                          # Output: 8 x 8 x 64
+        )
+        # Fully connected layers to produce routing probabilities
+        self.fc_layers = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(8 * 8 * 64, 128),
             nn.ReLU(),
             nn.Dropout(0.2),
-            nn.Linear(128, 64),
-            nn.ReLU(),
-            nn.Linear(64, num_students)
+            nn.Linear(128, num_students)
         )
         self.temperature = 5.0  # High initial temperature for exploration
 
     def forward(self, x):
-        logits = self.network(x)
-        return F.softmax(logits / self.temperature, dim=1)  # Apply temperature scaling
+        # x is expected to have shape [batch_size, 3, 32, 32]
+        x = x.view(-1, 3, 32, 32)
+        
+        features = self.conv_layers(x)
+        logits = self.fc_layers(features)
+        # Apply temperature scaling to logits before softmax
+        return F.softmax(logits / self.temperature, dim=1)
 
 
 class MoE(nn.Module):
@@ -257,7 +259,7 @@ def main():
     students = [StudentModel().to(device) for _ in range(config.num_students)]
     # Load Distilled Student Models
     for i, student in enumerate(students):
-        student_path = "student_models/large_cnn_students/student_" + str(i) + ".pth"
+        student_path = "student_models/baseline_cnn_students/student_" + str(i) + ".pth"
         student.load_state_dict(torch.load(student_path, map_location=device))
     print("Distilled student models loaded successfully.")
 

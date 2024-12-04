@@ -63,32 +63,17 @@ class StudentModel(nn.Module):
     def __init__(self):
         super(StudentModel, self).__init__()
         self.network = nn.Sequential(
-            # Original layers
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output: 32 x 32 x 32
+            nn.Conv2d(3, 32, kernel_size=3, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 16 x 16 x 32
-
-            nn.Conv2d(32, 64, kernel_size=3, padding=1), # Output: 16 x 16 x 64
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),                          # Output: 8 x 8 x 64
-
-            # First additional convolutional layer
-            nn.Conv2d(64, 128, kernel_size=3, padding=1), # Output: 8 x 8 x 128
-            nn.ReLU(),
-
-            # Second additional convolutional layer
-            nn.Conv2d(128, 256, kernel_size=3, padding=1), # Output: 8 x 8 x 256
-            nn.ReLU(),
-
-            # Pooling layer to reduce spatial dimensions
-            nn.MaxPool2d(2, 2),                            # Output: 4 x 4 x 256
-
+            nn.MaxPool2d(2, 2),
             nn.Flatten(),
-            nn.Linear(4 * 4 * 256, config.hidden_dim),
+            nn.Linear(8 * 8 * 64, config.hidden_dim),
             nn.ReLU(),
             nn.Linear(config.hidden_dim, config.num_classes)
         )
-
 
     def forward(self, x):
         return self.network(x)
@@ -257,7 +242,7 @@ def main():
     students = [StudentModel().to(device) for _ in range(config.num_students)]
     # Load Distilled Student Models
     for i, student in enumerate(students):
-        student_path = "student_models/large_cnn_students/student_" + str(i) + ".pth"
+        student_path = "student_models/large_res_students/student_" + str(i) + ".pth"
         student.load_state_dict(torch.load(student_path, map_location=device))
     print("Distilled student models loaded successfully.")
 
