@@ -135,6 +135,8 @@ def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, d
     student.train()
     total_loss = 0
     num_correct = 0
+    total_samples = 0  # Keep track of total number of samples
+    
     for inputs, targets in loader:
         inputs, targets = inputs.to(device), targets.to(device)
 
@@ -143,20 +145,23 @@ def distill_teacher_to_student(teacher, student, loader, optimizer, criterion, d
             teacher_soft = F.softmax(teacher_outputs / config.temperature, dim=1)
 
         student_outputs = student(inputs)
-        num_correct += (student_outputs.argmax(1) == targets).sum().item()
         student_soft = F.log_softmax(student_outputs / config.temperature, dim=1)
 
         distill_loss = F.kl_div(student_soft, teacher_soft, reduction='batchmean') * (config.temperature ** 2)
         hard_loss = F.cross_entropy(student_outputs, targets)
         loss = config.alpha * distill_loss + (1 - config.alpha) * hard_loss
+        
+        # accumulate accuracy
+        num_correct += (student_outputs.argmax(1) == targets).sum().item()
+        total_samples += inputs.size(0)
 
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         total_loss += loss.item()
     
-    print(f"Distill Loss: {total_loss / len(loader):.4f}")
-    print(f"Distill Acc: {num_correct / len(loader):.4f}")
+    accuracy = num_correct / total_samples
+    print(f"Distill Loss: {total_loss / len(loader):.4f}, Acc: {accuracy:.4f}")
     return total_loss / len(loader)
 
 def evaluate_with_metrics(model, loader, device, description="Model"):
@@ -250,11 +255,11 @@ def main():
     # Distillation Phase: Teacher -> Students
     print("\nDistilling Teacher Knowledge into Students:")
     students = [StudentModel().to(device) for _ in range(config.num_students)]
+    # Load Distilled Student Models
     for i, student in enumerate(students):
-        optimizer_student = AdamW(student.parameters(), lr=config.lr)
-        for epoch in range(config.epochs // 2):  # Train for half of total epochs
-            distill_teacher_to_student(teacher, student, train_loader, optimizer_student, nn.CrossEntropyLoss(), device)
-        torch.save(student.state_dict(), config.student_model_path.format(i))
+        student_path = "student_models/large_cnn_students/student_" + str(i) + ".pth"
+        student.load_state_dict(torch.load(student_path, map_location=device))
+    print("Distilled student models loaded successfully.")
 
     # Mixture of Experts Training
     print("\nTraining MoE Model:")
@@ -326,7 +331,7 @@ def main():
 
 
     # Evaluate and visualize specialization
-    print("\nEvaluating MoE Model:")
+    print("\nEvaluating Student" + str(i + 1) + "'s Model:")
     evaluate_with_metrics(moe_model, test_loader, device, description="MoE")
     visualize_specialization(class_prob_tracker, config.num_classes, config.num_students)
 

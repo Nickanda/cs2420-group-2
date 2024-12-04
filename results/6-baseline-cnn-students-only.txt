@@ -1,0 +1,25 @@
+Distilling Teacher Knowledge into Students:
+
+Each student should have similar losses and accuracies of:
+
+Distill Loss: 7.0761, Acc: 0.5089
+Distill Loss: 4.8229, Acc: 0.6621
+Distill Loss: 3.9252, Acc: 0.7209
+Distill Loss: 3.3221, Acc: 0.7648
+Distill Loss: 2.8270, Acc: 0.8027
+Distill Loss: 2.3767, Acc: 0.8382
+Distill Loss: 1.9850, Acc: 0.8719
+Distill Loss: 1.6511, Acc: 0.9021
+Distill Loss: 1.3648, Acc: 0.9285
+Distill Loss: 1.1386, Acc: 0.9482
+Distill Loss: 0.9668, Acc: 0.9623
+Distill Loss: 0.8381, Acc: 0.9709
+Distill Loss: 0.7391, Acc: 0.9763
+Distill Loss: 0.6649, Acc: 0.9806
+Distill Loss: 0.6167, Acc: 0.9815
+
+Evaluating Student1's Model:
+
+Loss: 1.4647, Accuracy: 0.7295
+Latency per Image: 0.002364 secs
+FLOPs per Image: 0.10 MFLOPs

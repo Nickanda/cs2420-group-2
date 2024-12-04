@@ -1,0 +1,133 @@
+Distilling Teacher Knowledge into Students:
+
+Distill Loss: 7.5239, Acc: 0.4690
+Distill Loss: 4.8025, Acc: 0.6601
+Distill Loss: 3.6011, Acc: 0.7433
+Distill Loss: 2.8847, Acc: 0.7926
+Distill Loss: 2.3190, Acc: 0.8339
+Distill Loss: 1.8721, Acc: 0.8715
+Distill Loss: 1.4645, Acc: 0.9055
+Distill Loss: 1.1461, Acc: 0.9351
+Distill Loss: 0.9098, Acc: 0.9552
+Distill Loss: 0.7435, Acc: 0.9688
+Distill Loss: 0.6323, Acc: 0.9747
+Distill Loss: 0.5760, Acc: 0.9777
+Distill Loss: 0.5295, Acc: 0.9793
+Distill Loss: 0.5138, Acc: 0.9798
+Distill Loss: 0.4604, Acc: 0.9824
+
+Evaluating Student0's Model:
+
+Loss: 1.0991, Accuracy: 0.7845
+Latency per Image: 0.001686 secs
+FLOPs per Image: 0.47 MFLOPs
+
+Distill Loss: 7.3938, Acc: 0.4796
+Distill Loss: 4.7042, Acc: 0.6635
+Distill Loss: 3.5838, Acc: 0.7430
+Distill Loss: 2.8684, Acc: 0.7915
+Distill Loss: 2.3207, Acc: 0.8351
+Distill Loss: 1.8643, Acc: 0.8714
+Distill Loss: 1.4632, Acc: 0.9065
+Distill Loss: 1.1556, Acc: 0.9334
+Distill Loss: 0.9123, Acc: 0.9552
+Distill Loss: 0.7490, Acc: 0.9687
+Distill Loss: 0.6351, Acc: 0.9758
+Distill Loss: 0.5774, Acc: 0.9776
+Distill Loss: 0.5368, Acc: 0.9795
+Distill Loss: 0.5000, Acc: 0.9815
+Distill Loss: 0.4767, Acc: 0.9822
+
+Evaluating Student1's Model:
+
+Loss: 1.0197, Accuracy: 0.7855
+Latency per Image: 0.001291 secs
+FLOPs per Image: 0.47 MFLOPs
+
+Distill Loss: 7.4100, Acc: 0.4765
+Distill Loss: 4.8017, Acc: 0.6598
+Distill Loss: 3.6834, Acc: 0.7349
+Distill Loss: 2.9478, Acc: 0.7879
+Distill Loss: 2.4312, Acc: 0.8272
+Distill Loss: 1.9792, Acc: 0.8626
+Distill Loss: 1.5641, Acc: 0.8977
+Distill Loss: 1.2398, Acc: 0.9275
+Distill Loss: 0.9819, Acc: 0.9484
+Distill Loss: 0.7945, Acc: 0.9638
+Distill Loss: 0.6778, Acc: 0.9724
+Distill Loss: 0.5996, Acc: 0.9771
+Distill Loss: 0.5678, Acc: 0.9784
+Distill Loss: 0.5198, Acc: 0.9807
+Distill Loss: 0.4860, Acc: 0.9810
+
+Evaluating Student2's Model:
+
+Loss: 1.0914, Accuracy: 0.7878
+Latency per Image: 0.000676 secs
+FLOPs per Image: 0.47 MFLOPs
+
+Distill Loss: 7.3150, Acc: 0.4834
+Distill Loss: 4.8004, Acc: 0.6611
+Distill Loss: 3.6359, Acc: 0.7403
+Distill Loss: 2.9180, Acc: 0.7894
+Distill Loss: 2.3617, Acc: 0.8312
+Distill Loss: 1.8911, Acc: 0.8680
+Distill Loss: 1.4819, Acc: 0.9042
+Distill Loss: 1.1420, Acc: 0.9352
+Distill Loss: 0.9052, Acc: 0.9558
+Distill Loss: 0.7268, Acc: 0.9712
+Distill Loss: 0.6088, Acc: 0.9776
+Distill Loss: 0.5705, Acc: 0.9780
+Distill Loss: 0.5441, Acc: 0.9788
+Distill Loss: 0.4899, Acc: 0.9813
+Distill Loss: 0.4833, Acc: 0.9803
+
+Evaluating Student3's Model:
+
+Loss: 1.1197, Accuracy: 0.7812
+Latency per Image: 0.000725 secs
+FLOPs per Image: 0.47 MFLOPs
+
+Distill Loss: 7.4728, Acc: 0.4705
+Distill Loss: 4.7631, Acc: 0.6626
+Distill Loss: 3.5671, Acc: 0.7437
+Distill Loss: 2.8540, Acc: 0.7939
+Distill Loss: 2.3016, Acc: 0.8373
+Distill Loss: 1.8396, Acc: 0.8731
+Distill Loss: 1.4516, Acc: 0.9070
+Distill Loss: 1.1120, Acc: 0.9368
+Distill Loss: 0.8739, Acc: 0.9576
+Distill Loss: 0.7160, Acc: 0.9691
+Distill Loss: 0.6009, Acc: 0.9776
+Distill Loss: 0.5471, Acc: 0.9789
+Distill Loss: 0.5269, Acc: 0.9792
+Distill Loss: 0.4957, Acc: 0.9809
+Distill Loss: 0.4476, Acc: 0.9830
+
+Evaluating Student4's Model:
+
+Loss: 1.1362, Accuracy: 0.7891
+Latency per Image: 0.001062 secs
+FLOPs per Image: 0.47 MFLOPs
+
+Distill Loss: 7.5408, Acc: 0.4699
+Distill Loss: 4.7724, Acc: 0.6613
+Distill Loss: 3.6615, Acc: 0.7404
+Distill Loss: 2.9482, Acc: 0.7890
+Distill Loss: 2.3482, Acc: 0.8333
+Distill Loss: 1.8770, Acc: 0.8715
+Distill Loss: 1.4553, Acc: 0.9088
+Distill Loss: 1.1275, Acc: 0.9368
+Distill Loss: 0.8612, Acc: 0.9592
+Distill Loss: 0.7135, Acc: 0.9700
+Distill Loss: 0.6229, Acc: 0.9759
+Distill Loss: 0.5649, Acc: 0.9778
+Distill Loss: 0.5373, Acc: 0.9794
+Distill Loss: 0.5062, Acc: 0.9806
+Distill Loss: 0.4660, Acc: 0.9810
+
+Evaluating Student5's Model:
+
+Loss: 1.1452, Accuracy: 0.7786
+Latency per Image: 0.000663 secs
+FLOPs per Image: 0.47 MFLOPs
