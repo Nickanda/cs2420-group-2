@@ -1,0 +1,44 @@
+Training MoE Model:
+Epoch 1/15
+<ipython-input-3-d5d759345a99>:264: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load("teacher.pth", map_location=device))
+<ipython-input-3-d5d759345a99>:274: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  student.load_state_dict(torch.load(student_path, map_location=device))
+MoE Train Loss: 94.6431, Train Acc: 0.8541
+Epoch 2/15
+MoE Train Loss: 92.9548, Train Acc: 0.9002
+Epoch 3/15
+MoE Train Loss: 92.3388, Train Acc: 0.9192
+Epoch 4/15
+MoE Train Loss: 91.7462, Train Acc: 0.9233
+Epoch 5/15
+MoE Train Loss: 91.5799, Train Acc: 0.9346
+Epoch 6/15
+MoE Train Loss: 91.3434, Train Acc: 0.9360
+Epoch 7/15
+MoE Train Loss: 91.1726, Train Acc: 0.9471
+Epoch 8/15
+MoE Train Loss: 91.1705, Train Acc: 0.9500
+Epoch 9/15
+MoE Train Loss: 91.1091, Train Acc: 0.9580
+Epoch 10/15
+MoE Train Loss: 91.1029, Train Acc: 0.9569
+Epoch 11/15
+MoE Train Loss: 91.1686, Train Acc: 0.9539
+Epoch 12/15
+MoE Train Loss: 91.1223, Train Acc: 0.9572
+Epoch 13/15
+MoE Train Loss: 91.1317, Train Acc: 0.9636
+Epoch 14/15
+MoE Train Loss: 91.1595, Train Acc: 0.9643
+Epoch 15/15
+MoE Train Loss: 91.0493, Train Acc: 0.9570
+
+Evaluating MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.3, students.3.network, students.3.network.0, students.3.network.1, students.3.network.2, students.3.network.3, students.3.network.4, students.3.network.5, students.3.network.6, students.3.network.7, students.3.network.8, students.3.network.9
+MoE Results:
+Loss: 2.0992, Accuracy: 0.6628
+Latency per Image: 0.001972 secs
+FLOPs per Image: 0.10 MFLOPs

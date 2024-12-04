@@ -1,0 +1,45 @@
+Training MoE Model:
+Epoch 1/15
+<ipython-input-7-8ade37314434>:253: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load("teacher.pth", map_location=device))
+<ipython-input-7-8ade37314434>:263: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  student.load_state_dict(torch.load(student_path, map_location=device))
+MoE Train Loss: 112.1282, Train Acc: 0.8536
+Epoch 2/15
+MoE Train Loss: 107.9717, Train Acc: 0.8517
+Epoch 3/15
+MoE Train Loss: 109.3197, Train Acc: 0.8570
+Epoch 4/15
+MoE Train Loss: 111.7314, Train Acc: 0.8679
+Epoch 5/15
+MoE Train Loss: 112.5655, Train Acc: 0.8650
+Epoch 6/15
+MoE Train Loss: 112.9255, Train Acc: 0.8756
+Epoch 7/15
+MoE Train Loss: 112.4033, Train Acc: 0.8856
+Epoch 8/15
+MoE Train Loss: 111.6432, Train Acc: 0.8895
+Epoch 9/15
+MoE Train Loss: 111.5649, Train Acc: 0.8924
+Epoch 10/15
+MoE Train Loss: 111.4569, Train Acc: 0.9035
+Epoch 11/15
+MoE Train Loss: 111.1413, Train Acc: 0.9076
+Epoch 12/15
+MoE Train Loss: 110.9794, Train Acc: 0.9060
+Epoch 13/15
+MoE Train Loss: 111.2819, Train Acc: 0.9065
+Epoch 14/15
+MoE Train Loss: 112.9213, Train Acc: 0.8852
+Epoch 15/15
+MoE Train Loss: 113.8372, Train Acc: 0.9079
+
+Evaluating MoE Model:
+WARNING:fvcore.nn.jit_analysis:Unsupported operator aten::max_pool2d encountered 2 time(s)
+WARNING:fvcore.nn.jit_analysis:The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+gating_net, gating_net.conv_layers, gating_net.conv_layers.0, gating_net.conv_layers.1, gating_net.conv_layers.2, gating_net.conv_layers.3, gating_net.conv_layers.4, gating_net.conv_layers.5, gating_net.conv_layers.6, gating_net.conv_layers.7, gating_net.fc_layers, gating_net.fc_layers.0, gating_net.fc_layers.1, gating_net.fc_layers.2, gating_net.fc_layers.3, gating_net.fc_layers.4, students.0, students.0.network, students.0.network.0, students.0.network.1, students.0.network.2, students.0.network.3, students.0.network.4, students.0.network.5, students.0.network.6, students.0.network.7, students.0.network.8, students.0.network.9, students.1, students.1.network, students.1.network.0, students.1.network.1, students.1.network.2, students.1.network.3, students.1.network.4, students.1.network.5, students.1.network.6, students.1.network.7, students.1.network.8, students.1.network.9, students.2, students.2.network, students.2.network.0, students.2.network.1, students.2.network.2, students.2.network.3, students.2.network.4, students.2.network.5, students.2.network.6, students.2.network.7, students.2.network.8, students.2.network.9
+MoE Results:
+Loss: 1.5409, Accuracy: 0.6823
+Latency per Image: 0.001643 secs
+FLOPs per Image: 0.10 MFLOPs
+
