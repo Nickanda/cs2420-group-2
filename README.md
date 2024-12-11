@@ -28,7 +28,11 @@ pip install -r requirements.txt
 
 ## 4. Training & Inference
 
-## x. References
+We have implemented the MoIST model in `main.py` with all of the functions necessary to run and train the model. By default, MoIST will use the teacher model weights given by the `resnet18_cifar10_tailored_epoch20.pth` file and student weights given by the `student_1.pth` file. Adjustable parameters can be found within the `Config` class at the top of the file.
+
+For convenience, we have also attached the Jupyter notebook in `main.ipynb` that can be easily imported into Google Colab.
+
+## 5. References
 
 [^1]: Hinton, Geoffrey, Oriol Vinyals, and Jeff Dean. “Distilling the Knowledge in a Neural Network.” arXiv, March 9, 2015. http://arxiv.org/abs/1503.02531.
 [^2]: Shazeer, Noam, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean. “Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer.” arXiv, January 23, 2017. http://arxiv.org/abs/1701.06538.
