@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ## 4. Training & Inference
 
-We have implemented the MoIST model in `main.py` with all of the functions necessary to run and train the model. By default, MoIST will use the teacher model weights given by the `resnet18_cifar10_tailored_epoch20.pth` file and student weights given by the `student_1.pth` file. Adjustable parameters can be found within the `Config` class at the top of the file.
+We have implemented our "prototype" MoIST model in `main.py` with all of the functions necessary to run and train the model. By default, MoIST will use the teacher model weights given by the `resnet18_cifar10_tailored_epoch20.pth` file and student weights given by the `student_1.pth` file. Adjustable parameters can be found within the `Config` class at the top of the file.
 
 For convenience, we have also attached the Jupyter notebook in `main.ipynb` that can be easily imported into Google Colab.
 
